@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Ticket UI</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Floating Button -->
+    <div class="chatbot_show_button">
+        <i class="fa-solid fa-comments"></i>
+    </div>
+
+    <!-- Chatbot Layout -->
+    <div id="chatbot_layout_ar" class="chatbot_layout_ar">
+
+
+        <!-- Header -->
+        <div class="chatbot_header">
+            <!-- Close button -->
+            <div class="close_chatbot_ar">✕</div>
+
+            <i class="fa-solid fa-arrow-left"></i>
+            <span id="header_title">Add Ticket</span>
+            <div class="header_dropdown" id="langDropdown">
+                <div class="header_right" id="dropdownTrigger">
+                    <i class="fa-solid fa-globe"></i> English <i class="fa-solid fa-caret-down"></i>
+                </div>
+
+                <div class="dropdown_content" id="dropdownMenu">
+                    <div class="dropdown_header">Languages</div>
+                    <ul class="language_list">
+                        <li><a href="#">বাংলা</a></li>
+                        <li class="active"><a href="#">English</a></li>
+                    </ul>
+                    <div class="dropdown_footer">
+                        Default: <strong>English</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BODY WRAPPER -->
+        <div class="chatbot_body_wrapper">
+            <!-- Loader Overlay -->
+            <div id="tab_loader" class="loader_overlay">
+                <div class="loader"></div>
+            </div>
+
+            <!-- TICKETS TAB -->
+            <div class="tab_content active" id="tab-tickets">
+                <h4 class="ticket_form_heading">Case Information</h4>
+                <div class="ticket_form">
+                    <div class="form_group">
+                        <input type="text" placeholder="Contact Name">
+                    </div>
+
+                    <div class="form_group">
+                        <label class="field_label">
+                            Sector of user reporting issues
+                            <span class="info">i</span>
+                        </label>
+
+                        <div class="custom-select">
+                            <div class="select-display">
+                                <span class="selected-value">Private</span>
+                                <span class="chevron"><i class="fa-solid fa-sort-down"></i></span>
+                            </div>
+
+                            <div class="dropdown">
+                                <input type="text" placeholder="Search..." class="search-input">
+
+                                <ul class="options">
+                                    <li class="active" value="Private">Private</li>
+                                    <li value="Public">Public</li>
+                                    <li value="Traders">Traders</li>
+                                    <li value="Declarant">Declarant</li>
+                                    <li value="Government">Government</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form_group">
+                        <input type="text" placeholder="Contact Name">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CHAT TAB -->
+            <div class="tab_content" id="tab-chat">
+
+                <!-- FAQ CHAT -->
+                <div id="faq_chat" class="faq-chat">
+                    <div class="faq-options">
+                        <div class="chat-row">
+                            <div class="bot-icon">🤖</div>
+
+
+                            <div class="faq-buttons">
+                                <p class="faq-title">
+                                    Please select from the following options for detailed assistance:
+                                </p>
+                                <button class="faq-btn">About BSW</button>
+                                <button class="faq-btn">User Registration</button>
+                                <button class="faq-btn">Licenses and Institutions</button>
+                                <button class="faq-btn active">General inquiries</button>
+                                <button class="faq-btn whatsapp">
+                                    Message us on WhatsApp
+                                </button>
+                                <div>
+                                    <span class="chat-time">11:11 AM</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="user-reply">
+                        General inquiries
+                        <span class="reply-time">03:56 PM</span>
+                    </div>
+                    <div class="faq-options">
+                        <div class="chat-row">
+                            <div class="bot-icon">🤖</div>
+
+
+                            <div class="faq-buttons">
+                                <p class="faq-title">
+                                    Please select from the following options for detailed assistance:
+                                </p>
+                                <button class="faq-btn">About BSW</button>
+                                <button class="faq-btn">User Registration</button>
+                                <button class="faq-btn active">Licenses and Institutions</button>
+                                <button class="faq-btn">General inquiries</button>
+                                <button class="faq-btn whatsapp">
+                                    Message us on WhatsApp
+                                </button>
+                                <div>
+                                    <span class="chat-time">11:11 AM</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="user-reply">
+                        Licenses and Institutions
+                        <span class="reply-time">03:56 PM</span>
+                    </div>
+                    <div class="faq-options">
+                        <div class="chat-row">
+                            <div class="bot-icon">🤖</div>
+
+
+                            <div class="faq-buttons">
+                                <p class="faq-title">
+                                    For further information and enquiry please refer to <a href="">FAQ.</a>
+                                </p>
+
+                                <div>
+                                    <span class="chat-time">11:11 AM</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LIVE CHAT -->
+                <div id="live_chat" style="display:none;">
+                    <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
+                    <div class="chat_message user">I need help with my account</div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- KNOWLEDGE BASE TAB -->
+            <div class="tab_content" id="tab-kb">
+                <div class="kb_item">
+                    <h5>How to create a ticket?</h5>
+                    <p>Go to Tickets → Add Ticket → Fill required fields.</p>
+                </div>
+
+                <div class="kb_item">
+                    <h5>How to reset password?</h5>
+                    <p>Use the forgot password option from login.</p>
+                </div>
+
+                <div class="kb_item">
+                    <h5>How to contact support?</h5>
+                    <p>Use the chat or ticket option anytime.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footers -->
+        <!-- Ticket Footer -->
+        <div class="chatbot_footer" id="ticket_footer">
+            <div class="ticket_footer_container">
+                <i class="fa-solid fa-paperclip attach_icon"></i>
+                <div class="button_wrapper">
+                    <button class="btn reset">Reset</button>
+                    <button class="btn submit">Submit</button>
+                </div>
+            </div>
+            <p class="watermark">Powered by iHelpBD</p>
+        </div>
+         <!-- faq chat footer -->
+        <div class="chatbot_footer" id="chat_footer">
+            <div class="">
+                <div class="chat_with_agent" id="start_live_chat">
+                    <i class="fa-regular fa-comment-dots"></i> Chat with our agent directly
+                </div>
+                <p class="watermark">Powered by iHelpBD</p>
+            </div>
+        </div>
+         <!-- live chat footer -->
+        <div class="chatbot_footer" id="direct_chat_footer">
+            <div class="chat_with_agent_wrapper">
+                <div class="chat_with_agent_div" id="live_chat_div">
+                    <div class="live_chat_footer">
+                        <textarea class="input_like_textarea" placeholder="Type your message..."></textarea>
+
+                        <button id="end_chat"><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+
+                </div>
+            </div>
+            <p class="watermark">Powered by iHelpBD</p>
+        </div>
+         <!-- knowledge base footer -->
+        <div class="chatbot_footer" id="knowledge_footer">
+            <p class="watermark">Powered by iHelpBD</p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="chatbot_tabs">
+            <div class="tab active" data-tab="tickets">
+                <i class="fa-solid fa-ticket"></i>
+                <span>Tickets</span>
+            </div>
+            <div class="tab" data-tab="chat">
+                <i class="fa-solid fa-comment"></i>
+                <span>Chat</span>
+            </div>
+            <div class="tab" data-tab="kb">
+                <i class="fa-solid fa-book"></i>
+                <span>Knowledge</span>
+            </div>
+        </div>
+
+        
+
+    </div>
+
+
+    <script src="script.js"></script>
+    </script>
+
+</body>
+
+</html>
