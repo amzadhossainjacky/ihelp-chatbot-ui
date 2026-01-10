@@ -23,18 +23,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ===== Tabs ===== */
-    const tabs = document.querySelectorAll('.tab');
-    const contents = document.querySelectorAll('.tab_content');
+    const tabs = document.querySelectorAll('.tab_ar');
+    const contents = document.querySelectorAll('.tab_content_ar');
 
-    const ticket_footer = document.getElementById('ticket_footer');
-    const chat_footer = document.getElementById('chat_footer');
-    const knowledge_footer = document.getElementById('knowledge_footer');
-    const direct_chat_footer = document.getElementById('direct_chat_footer');
+    const ticket_footer_ar = document.getElementById('ticket_footer_ar');
+    const chat_footer = document.getElementById('chat_footer_ar');
+    const knowledge_footer = document.getElementById('knowledge_footer_ar');
+    const product_footer = document.getElementById('product_footer_ar');
+    const direct_chat_footer = document.getElementById('direct_chat_footer_ar');
 
-    const headerTitle = document.getElementById('header_title');
+    const headerTitle = document.getElementById('header_title_ar');
 
-    const faqChat  = document.getElementById('faq_chat');
-    const liveChat = document.getElementById('live_chat');
+    const faqChat  = document.getElementById('faq_chat_ar');
+    const liveChat = document.getElementById('live_chat_ar');
 
     const loader = document.getElementById('tab_loader');
 
@@ -68,8 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
             switch (target) {
                 case 'tickets':
                     headerTitle.innerText = 'Add Ticket';
-                    ticket_footer.style.display = 'block';
+                    ticket_footer_ar.style.display = 'block';
                     chat_footer.style.display = 'none';
+                     product_footer.style.display = 'none';
                     knowledge_footer.style.display = 'none';
                     direct_chat_footer.style.display = 'none';
                     break;
@@ -78,18 +80,30 @@ document.addEventListener('DOMContentLoaded', () => {
                     headerTitle.innerText = 'Live Chat';
                     faqChat.style.display = 'block';
                     liveChat.style.display = 'none';
-                    ticket_footer.style.display = 'none';
+                    ticket_footer_ar.style.display = 'none';
                     chat_footer.style.display = 'block';
+                     product_footer.style.display = 'none';
+                    knowledge_footer.style.display = 'none';
+                    direct_chat_footer.style.display = 'none';
+                    break;
+                case 'product':
+                    headerTitle.innerText = 'Product';
+                    faqChat.style.display = 'none';
+                    liveChat.style.display = 'none';
+                    ticket_footer_ar.style.display = 'none';
+                    chat_footer.style.display = 'none';
+                    product_footer.style.display = 'block';
                     knowledge_footer.style.display = 'none';
                     direct_chat_footer.style.display = 'none';
                     break;
 
                 case 'kb':
                     headerTitle.innerText = 'Knowledge Base';
-                    ticket_footer.style.display = 'none';
+                    ticket_footer_ar.style.display = 'none';
                     chat_footer.style.display = 'none';
                     knowledge_footer.style.display = 'block';
                     direct_chat_footer.style.display = 'none';
+                     product_footer.style.display = 'none';
                     break;
             }
         });
@@ -100,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ===== Default Tab ===== */
-    const defaultTab = document.querySelector('.tab[data-tab="tickets"]');
+    const defaultTab = document.querySelector('.tab_ar[data-tab="tickets"]');
     if (defaultTab) activateTab(defaultTab);
 
     /* ===== Start / End Live Chat ===== */
@@ -133,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 faqChat.classList.add('fade-in');
 
                 headerTitle.innerText = 'Chat';
-                chat_footer.style.display = 'flex';
+                chat_footer.style.display = 'block';
                 direct_chat_footer.style.display = 'none';
             }, 250);
         });
@@ -156,7 +170,7 @@ kbItems.forEach(item => {
     });
 });
 // Get the elements
-const trigger = document.getElementById('dropdownTrigger');
+const trigger = document.getElementById('dropdownTrigger_ar');
 const menu = document.getElementById('dropdownMenu');
 
 // Toggle menu on click
@@ -172,21 +186,120 @@ window.addEventListener('click', function(event) {
         menu.classList.remove('show');
     }
 });
+/* ===== Multi Select (CLP) – Hide Selected Options ===== */
+document.querySelectorAll('.multi-select_ar').forEach(select => {
+
+    const display   = select.querySelector('.multi-display_ar');
+    const dropdown  = select.querySelector('.multi-dropdown_ar');
+    const search    = select.querySelector('.multi-search');
+    const options   = select.querySelectorAll('.multi-options_ar li');
+    const tagsBox   = select.querySelector('.multi-tags_ar');
+    const hiddenInp = document.getElementById('clpValues');
+
+    let values = [];
+
+    /* Open / close */
+    display.addEventListener('click', e => {
+        e.stopPropagation();
+
+        document.querySelectorAll('.multi-dropdown_ar').forEach(d => {
+            if (d !== dropdown) d.style.display = 'none';
+        });
+
+        dropdown.style.display =
+            dropdown.style.display === 'block' ? 'none' : 'block';
+
+        search.value = '';
+        filter('');
+        search.focus();
+    });
+
+    dropdown.addEventListener('click', e => e.stopPropagation());
+
+    /* Select option */
+    options.forEach(option => {
+        option.addEventListener('click', e => {
+            e.stopPropagation();
+
+            const val  = option.dataset.value;
+            const text = option.textContent;
+
+            if (values.includes(val)) return;
+
+            values.push(val);
+
+            /* HIDE selected option */
+            option.style.display = 'none';
+
+            const tag = document.createElement('div');
+            tag.className = 'multi-tag';
+            tag.innerHTML = `${text} <span>&times;</span>`;
+
+            tag.querySelector('span').addEventListener('click', ev => {
+                ev.stopPropagation();
+
+                values = values.filter(v => v !== val);
+
+                /* SHOW option back */
+                option.style.display = 'block';
+
+                tag.remove();
+                updatePlaceholder();
+                hiddenInp.value = values.join(',');
+            });
+
+            tagsBox.appendChild(tag);
+            updatePlaceholder();
+            hiddenInp.value = values.join(',');
+        });
+    });
+
+    /* Search filter */
+    search.addEventListener('keyup', () => {
+        filter(search.value.toLowerCase());
+    });
+
+    function filter(val){
+        options.forEach(o => {
+            if (values.includes(o.dataset.value)) {
+                o.style.display = 'none';
+                return;
+            }
+
+            o.style.display = o.textContent.toLowerCase().includes(val)
+                ? 'block'
+                : 'none';
+        });
+    }
+
+    function updatePlaceholder(){
+        const ph = tagsBox.querySelector('.multi-placeholder_ar');
+        ph.style.display = values.length ? 'none' : 'inline';
+    }
+});
+
+/* Outside click close */
+document.addEventListener('click', () => {
+    document.querySelectorAll('.multi-dropdown_ar').forEach(d => {
+        d.style.display = 'none';
+    });
+});
+
 });
 
 /* ===== Custom Select ===== */
-document.querySelectorAll('.custom-select').forEach(select => {
+document.querySelectorAll('.custom-select_ar').forEach(select => {
 
-    const display = select.querySelector('.select-display');
-    const dropdown = select.querySelector('.dropdown');
+    const display = select.querySelector('.select-display_ar');
+    const dropdown = select.querySelector('.dropdown_ar');
     const search = select.querySelector('.search-input');
-    const options = select.querySelectorAll('.options li');
+    const options = select.querySelectorAll('.options_ar li');
     const selectedValue = select.querySelector('.selected-value');
 
     display.addEventListener('click', e => {
         e.stopPropagation();
 
-        document.querySelectorAll('.dropdown').forEach(d => {
+        document.querySelectorAll('.dropdown_ar').forEach(d => {
             if (d !== dropdown) d.style.display = 'none';
         });
 
@@ -220,5 +333,5 @@ document.querySelectorAll('.custom-select').forEach(select => {
 
 /* ===== Outside click close ===== */
 document.addEventListener('click', () => {
-    document.querySelectorAll('.dropdown').forEach(d => d.style.display = 'none');
+    document.querySelectorAll('.dropdown_ar').forEach(d => d.style.display = 'none');
 });
