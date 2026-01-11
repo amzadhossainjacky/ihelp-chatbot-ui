@@ -26,19 +26,19 @@
             <div class="close_chatbot_ar">✕</div>
 
             <i class="fa-solid fa-arrow-left"></i>
-            <span id="header_title_ar">Add Ticket</span>
-            <div class="header_dropdown_ar" id="langDropdown">
-                <div class="header_right" id="dropdownTrigger_ar">
+            <span id="header_title">Add Ticket</span>
+            <div class="header_dropdown" id="langDropdown">
+                <div class="header_right" id="dropdownTrigger">
                     <i class="fa-solid fa-globe"></i> English <i class="fa-solid fa-caret-down"></i>
                 </div>
 
-                <div class="dropdown_content_ar" id="dropdownMenu">
-                    <div class="dropdown_header_ar">Languages</div>
+                <div class="dropdown_content" id="dropdownMenu">
+                    <div class="dropdown_header">Languages</div>
                     <ul class="language_list">
                         <li><a href="#">বাংলা</a></li>
                         <li class="active"><a href="#">English</a></li>
                     </ul>
-                    <div class="dropdown_footer_ar">
+                    <div class="dropdown_footer">
                         Default: <strong>English</strong>
                     </div>
                 </div>
@@ -46,45 +46,36 @@
         </div>
 
         <!-- BODY WRAPPER -->
-        <div class="chatbot_body_wrapper_ar">
+        <div class="chatbot_body_wrapper">
             <!-- Loader Overlay -->
             <div id="tab_loader" class="loader_overlay">
                 <div class="loader"></div>
             </div>
 
             <!-- TICKETS TAB -->
-            <div class="tab_content_ar active" id="tab-tickets">
-                <h4 class="ticket_form_heading_ar">Case Information</h4>
-                <div class="ticket_form_ar">
-                    <div class="form_group_ar floating_ar">
-                        <input type="text" id="contact_name_1" required>
-                        <label for="contact_name_1">
-                            Contact Name <span class="gl-form-asterisk">*</span>
-                        </label>
-                    </div>
-                    <div class="form_group_ar floating_ar">
-                        <input type="email" id="contact_name_1" required>
-                        <label for="contact_name_1">
-                            Email <span class="gl-form-asterisk">*</span>
-                        </label>
+            <div class="tab_content active" id="tab-tickets">
+                <h4 class="ticket_form_heading">Case Information</h4>
+                <div class="ticket_form">
+                    <div class="form_group">
+                        <input type="text" placeholder="Contact Name">
                     </div>
 
-                    <div class="form_group_ar">
+                    <div class="form_group">
                         <label class="field_label">
                             Sector of user reporting issues
                             <span class="info">i</span>
                         </label>
 
-                        <div class="custom-select_ar">
-                            <div class="select-display_ar">
+                        <div class="custom-select">
+                            <div class="select-display">
                                 <span class="selected-value">Private</span>
                                 <span class="chevron"><i class="fa-solid fa-sort-down"></i></span>
                             </div>
 
-                            <div class="dropdown_ar">
+                            <div class="dropdown">
                                 <input type="text" placeholder="Search..." class="search-input">
 
-                                <ul class="options_ar">
+                                <ul class="options">
                                     <li class="active" value="Private">Private</li>
                                     <li value="Public">Public</li>
                                     <li value="Traders">Traders</li>
@@ -95,128 +86,33 @@
                         </div>
                     </div>
 
-                    <div class="form_group_ar floating_ar">
-                        <textarea id="description" required></textarea>
-                        <label for="message">Description</label>
+                    <div class="form_group">
+                        <input type="text" placeholder="Contact Name">
                     </div>
-                    <div class="form_group_ar">
-                        <label class="field_label">
-                            BSW Application
-                            <span class="info">i</span>
-                        </label>
-
-                        <div class="custom-select_ar">
-                            <div class="select-display_ar">
-                                <span class="selected-value">Steakholder Registration</span>
-                                <span class="chevron"><i class="fa-solid fa-sort-down"></i></span>
-                            </div>
-
-                            <div class="dropdown_ar">
-                                <input type="text" placeholder="Search..." class="search-input">
-
-                                <ul class="options_ar">
-                                    <li class="active" value="Steakholder Registration">Steakholder Registration</li>
-                                    <li value="Trade">Trade Portal</li>
-                                    <li value="Tariff or AI Tariff">Tariff or AI Tariff</li>
-                                    <li value="CLP">CLP</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form_group_ar">
-                        <label class="field_label">
-                            Agency Type
-                            <span class="info">i</span>
-                        </label>
-
-                        <div class="custom-select_ar">
-                            <div class="select-display_ar">
-                                <span class="selected-value">DOE : Department Of Environment</span>
-                                <span class="chevron"><i class="fa-solid fa-sort-down"></i></span>
-                            </div>
-
-                            <div class="dropdown_ar">
-                                <input type="text" placeholder="Search..." class="search-input">
-
-                                <ul class="options_ar">
-                                    <li class="active" value="DOE : Department Of Environment">DOE : Department Of
-                                        Environment</li>
-                                    <li value="DOE : Department Of Environment">DOE : Department Of Environment</li>
-                                    <li value="DOF : Department Of Fisheries">DOF : Department Of Fisheries</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form_group_ar">
-                        <label class="field_label">
-                            Type of CLP <span class="info">i</span>
-                        </label>
-
-                        <div class="multi-select_ar" id="clpSelect">
-                            <div class="multi-display_ar">
-                                <div class="multi-tags_ar">
-                                    <span class="multi-placeholder_ar">Select type of CLP</span>
-                                </div>
-                                <span class="chevron"><i class="fa-solid fa-sort-down"></i>
-                            </div>
-
-                            <div class="multi-dropdown_ar">
-                                <input type="text" class="multi-search" placeholder="Search..." />
-
-                                <ul class="multi-options_ar">
-                                    <li data-value="4601">4601 DoE Clearance Certificate for Import of Hazardous
-                                        Substances</li>
-                                    <li data-value="4602">4602 DoE Clearance Certificate for Export of Hazardous
-                                        Substances</li>
-                                    <li data-value="4603">4603 DoE License for Import of Ozone Depleting Substance ODS
-                                    </li>
-                                    <li data-value="4604">4604 DoE License to import of Hydrofluorocarbons HFC</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="form_group_ar floating_ar" style="margin-top: 30px;">
-                            <input type="text" id="contact_name_1" required>
-                            <label for="contact_name_1">
-                               Please verify to proceed  <span class="gl-form-asterisk">*</span>
-                            </label>
-                        </div>
-                        <!-- optional hidden input -->
-                        <!-- <input type="hidden" name="clp_types" id="clpValues"> -->
-                    </div>
-
-
 
                 </div>
 
             </div>
 
             <!-- CHAT TAB -->
-            <div class="tab_content_ar" id="tab-chat">
-                <div id="phone_number_log_ar" class="phone_number_log_ar">
-                    <div class="phone_number_log_ar_container">
-                        <h3>Start With Phone Number</h3>
-                        <input type="text">
-                        <button id="phone_number_log_ar_submit" onclick="toggleNumberAr()"
-                            class="submit">Submit</button>
-                    </div>
-                </div>
+            <div class="tab_content" id="tab-chat">
+
                 <!-- FAQ CHAT -->
-                <div id="faq_chat_ar" class="faq-chat">
+                <div id="faq_chat" class="faq-chat">
+                    <div class="faq-options">
+                        <div class="chat-row">
+                            <div class="bot-icon">🤖</div>
 
-                    <div class="faq-options_ar">
-                        <div class="chat-row_ar">
-                            <div class="bot-icon_ar">🤖</div>
 
-
-                            <div class="faq-buttons_ar">
-                                <p class="faq-title_ar">
+                            <div class="faq-buttons">
+                                <p class="faq-title">
                                     Please select from the following options for detailed assistance:
                                 </p>
-                                <button class="faq-btn_ar">About BSW</button>
-                                <button class="faq-btn_ar">User Registration</button>
-                                <button class="faq-btn_ar">Licenses and Institutions</button>
-                                <button class="faq-btn_ar active">General inquiries</button>
-                                <button class="faq-btn_ar whatsapp">
+                                <button class="faq-btn">About BSW</button>
+                                <button class="faq-btn">User Registration</button>
+                                <button class="faq-btn">Licenses and Institutions</button>
+                                <button class="faq-btn active">General inquiries</button>
+                                <button class="faq-btn whatsapp">
                                     Message us on WhatsApp
                                 </button>
                                 <div>
@@ -229,55 +125,64 @@
                     </div>
 
 
-                    <div class="user-reply_ar">
+                    <div class="user-reply">
                         General inquiries
                         <span class="reply-time">03:56 PM</span>
                     </div>
+                    <div class="faq-options">
+                        <div class="chat-row">
+                            <div class="bot-icon">🤖</div>
 
 
+                            <div class="faq-buttons">
+                                <p class="faq-title">
+                                    Please select from the following options for detailed assistance:
+                                </p>
+                                <button class="faq-btn">About BSW</button>
+                                <button class="faq-btn">User Registration</button>
+                                <button class="faq-btn active">Licenses and Institutions</button>
+                                <button class="faq-btn">General inquiries</button>
+                                <button class="faq-btn whatsapp">
+                                    Message us on WhatsApp
+                                </button>
+                                <div>
+                                    <span class="chat-time">11:11 AM</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="user-reply">
+                        Licenses and Institutions
+                        <span class="reply-time">03:56 PM</span>
+                    </div>
+                    <div class="faq-options">
+                        <div class="chat-row">
+                            <div class="bot-icon">🤖</div>
+
+
+                            <div class="faq-buttons">
+                                <p class="faq-title">
+                                    For further information and enquiry please refer to <a href="">FAQ.</a>
+                                </p>
+
+                                <div>
+                                    <span class="chat-time">11:11 AM</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
 
                 <!-- LIVE CHAT -->
-                <div id="live_chat_ar" class="live_chat_ar" style="display:none;">
-                    <div class="leave_message_ar">
-                        <div class="leave_header_ar">
-                            <button class="back_btn_ar">
-                                <button id="end_chat" class=""><i class="fa-solid fa-angles-left"></i></button>
-                            </button>
-
-                            <div class="brand_circle">
-                                <span>ZOHO Desk</span>
-                            </div>
-
-                            <h3>Leave a message</h3>
-                        </div>
-                    </div>
-                    <div class="live_messages_ar">
-                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                        <div class="chat_message user">I need help with my account</div>
-                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                        <div class="chat_message user">I need help with my account</div>
-                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                        <div class="chat_message user">I need help with my account</div>
-                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                        <div class="chat_message user">I need help with my account</div>
-                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                        <div class="chat_message user">I need help with my account</div>
-                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                        <div class="chat_message user">I need help with my account</div>
-                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                        <div class="chat_message user">I need help with my account</div>
-                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                        <div class="chat_message user">I need help with my account</div>
-                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                        <div class="chat_message user">I need help with my account</div>
-                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                        <div class="chat_message user">I need help with my account</div>
-                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                        <div class="chat_message user">I need help with my account</div>
-                    </div>
+                <div id="live_chat" style="display:none;">
+                    <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
+                    <div class="chat_message user">I need help with my account</div>
 
 
                 </div>
@@ -286,10 +191,7 @@
 
 
             <!-- KNOWLEDGE BASE TAB -->
-            <div class="tab_content_ar" id="tab-product">
-                <span style="color : red;">tesst</span>
-            </div>
-            <div class="tab_content_ar" id="tab-kb">
+            <div class="tab_content" id="tab-kb">
                 <div class="kb_item">
                     <h5>How to create a ticket?</h5>
                     <p>Go to Tickets → Add Ticket → Fill required fields.</p>
@@ -310,18 +212,18 @@
 
         <!-- Footers -->
         <!-- Ticket Footer -->
-        <div class="chatbot_footer_ar" id="ticket_footer_ar">
-            <div class="ticket_footer_container_ar">
+        <div class="chatbot_footer" id="ticket_footer">
+            <div class="ticket_footer_container">
                 <i class="fa-solid fa-paperclip attach_icon"></i>
                 <div class="button_wrapper">
-                    <button class="btn_ar reset">Reset</button>
-                    <button class="btn_ar submit">Submit</button>
+                    <button class="btn reset">Reset</button>
+                    <button class="btn submit">Submit</button>
                 </div>
             </div>
             <p class="watermark">Powered by iHelpBD</p>
         </div>
-        <!-- faq chat footer -->
-        <div class="chatbot_footer_ar" id="chat_footer_ar">
+         <!-- faq chat footer -->
+        <div class="chatbot_footer" id="chat_footer">
             <div class="">
                 <div class="chat_with_agent" id="start_live_chat">
                     <i class="fa-regular fa-comment-dots"></i> Chat with our agent directly
@@ -329,52 +231,42 @@
                 <p class="watermark">Powered by iHelpBD</p>
             </div>
         </div>
-        <!-- live chat footer -->
-        <div class="chatbot_footer_ar" id="direct_chat_footer_ar">
+         <!-- live chat footer -->
+        <div class="chatbot_footer" id="direct_chat_footer">
             <div class="chat_with_agent_wrapper">
-                <div class="chat_with_agent_div" id="live_chat_div_ar">
-                    <div class="live_chat_footer_ar">
+                <div class="chat_with_agent_div" id="live_chat_div">
+                    <div class="live_chat_footer">
                         <textarea class="input_like_textarea" placeholder="Type your message..."></textarea>
 
-                        <button id="submit_live_chat_ar" class="submit_button_ar"><i
-                                class="fa-solid fa-paper-plane"></i></button>
-                        <!-- <button id="end_chat" class="end_button_ar"><i class="fa-solid fa-angles-left"></i></button> -->
+                        <button id="end_chat"><i class="fa-solid fa-paper-plane"></i></button>
                     </div>
+
                 </div>
             </div>
             <p class="watermark">Powered by iHelpBD</p>
         </div>
-        <!-- Product footer -->
-        <div class="chatbot_footer_ar" id="product_footer_ar">
+         <!-- knowledge base footer -->
+        <div class="chatbot_footer" id="knowledge_footer">
             <p class="watermark">Powered by iHelpBD</p>
         </div>
-        <!-- knowledge base footer -->
-        <div class="chatbot_footer_ar" id="knowledge_footer_ar">
-            <p class="watermark">Powered by iHelpBD</p>
-        </div>
-
 
         <!-- Tabs -->
-        <div class="chatbot_tabs_ar">
-            <div class="tab_ar active" data-tab="tickets">
+        <div class="chatbot_tabs">
+            <div class="tab active" data-tab="tickets">
                 <i class="fa-solid fa-ticket"></i>
                 <span>Tickets</span>
             </div>
-            <div class="tab_ar" data-tab="chat">
+            <div class="tab" data-tab="chat">
                 <i class="fa-solid fa-comment"></i>
                 <span>Chat</span>
             </div>
-            <div class="tab_ar" data-tab="product">
-                <i class="fa-brands fa-product-hunt"></i>
-                <span>Product</span>
-            </div>
-            <div class="tab_ar" data-tab="kb">
+            <div class="tab" data-tab="kb">
                 <i class="fa-solid fa-book"></i>
                 <span>Knowledge</span>
             </div>
         </div>
 
-
+        
 
     </div>
 
