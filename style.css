@@ -1,5 +1,6 @@
 :root{
     --primary:#1fa2ff;
+    --danger:#c7254e;
     --success:#10b981;
     --secondary:#12d8fa;
     --bg:#ffffff;
@@ -54,7 +55,7 @@
 }
 /* This class will be toggled by JavaScript */
 /* Container */
-.header_dropdown {
+.header_dropdown_ar {
     position: relative;
     display: inline-block;
     font-family: 'Segoe UI', Roboto, Arial, sans-serif;
@@ -73,7 +74,7 @@
 }
 
 /* Dropdown Box */
-.dropdown_content {
+.dropdown_content_ar {
     display: none; /* Hidden by default */
     position: absolute;
     right: 0;
@@ -87,7 +88,7 @@
 }
 
 /* The little white arrow on top */
-.dropdown_content::before {
+.dropdown_content_ar::before {
     content: "";
     position: absolute;
     top: -10px;
@@ -98,14 +99,14 @@
 }
 
 /* Show on Hover */
-/* .header_dropdown:hover .dropdown_content {
+/* .header_dropdown_ar:hover .dropdown_content_ar {
     display: block;
 } */
-.dropdownTrigger i{
+.dropdownTrigger_ar i{
     margin-top: 2px;
 }
 /* Internal Sections */
-.dropdown_header {
+.dropdown_header_ar {
     padding: 12px 16px;
     font-weight: bold;
     color: #555;
@@ -145,7 +146,7 @@
     text-align: center;
     border-radius: 0 0 4px 4px;
 }
-.dropdown_content.show {
+.dropdown_content_ar.show {
     display: block;
 }
 /* Body */
@@ -160,10 +161,10 @@
     color:var(--text);
 }
 
-/* .form_group{
+/* .form_group_ar{
     margin-bottom:14px;
 } */
-.ticket_form{
+.ticket_form_ar{
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
@@ -171,9 +172,9 @@
     padding: 10px 0;
 }
 
-.form_group input,
-.form_group select,
-.form_group textarea{
+.form_group_ar input,
+.form_group_ar select,
+.form_group_ar textarea{
     width:100%;
     border:none;
     border-bottom:1px solid var(--border);
@@ -186,12 +187,12 @@
 textarea{resize:none;height:80px}
 
 /* Footer */
-.chatbot_footer{
+.chatbot_footer_ar{
     /* height:60px; */
     border-top:1px solid var(--border);
     /* padding:10px 0 0 0; */
 }
-.ticket_footer_container{
+.ticket_footer_container_ar{
         display:flex;
     align-items:center;
     justify-content:space-between;
@@ -203,31 +204,31 @@ textarea{resize:none;height:80px}
     font-size:18px;
 }
 
-.btn{
+.btn_ar{
     padding:8px 18px;
     border-radius:20px;
     border:none;
     cursor:pointer;
 }
 
-.btn.reset{
+.btn_ar.reset{
     background:#fff;
     border: 1px solid #D3DBE8;
 }
 
-.btn.submit{
+.btn_ar.submit{
     background:#10b981;
     color:#fff;
 }
 
 /* Tabs */
-.chatbot_tabs{
+.chatbot_tabs_ar{
     height:60px;
     background:#222;
     display:flex;
 }
 
-.tab{
+.tab_ar{
     flex:1;
     color:#fff;
     text-align:center;
@@ -236,25 +237,25 @@ textarea{resize:none;height:80px}
     cursor:pointer;
 }
 
-.tab i{display:block;font-size:18px;margin-bottom:4px}
-.tab.active{
+.tab_ar i{display:block;font-size:18px;margin-bottom:4px}
+.tab_ar.active{
     background:#111;
     color: var(--primary);
 }
-.chatbot_body_wrapper{
+.chatbot_body_wrapper_ar{
     flex:1;
     overflow: hidden;
     position:relative;
 }
 
-.tab_content{
+.tab_content_ar{
     height:100%;
     overflow-y:auto;
-    padding:16px;
+    padding: 5px 12px;
     display:none;
 }
 
-.tab_content.active{
+.tab_content_ar.active{
     display:block;
 }
 
@@ -339,18 +340,18 @@ textarea{resize:none;height:80px}
     cursor:pointer;
     font-family: proxima-nova-regular, lato, Helvetica, Arial, Verdana, Tahoma, sans-serif;
 }
-.faq-title {
+.faq-title_ar {
     font-size: 14px;
     color: #333;
     margin-bottom: 12px;
 }
 
-/* .faq-options {
+/* .faq-options_ar {
     display: flex;
     flex-direction: column;
     gap: 10px;
 } */
-.faq-buttons{
+.faq-buttons_ar{
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -359,7 +360,7 @@ textarea{resize:none;height:80px}
     padding: 15px;
     border-radius: 10px;
 }
-.faq-btn {
+.faq-btn_ar {
     padding: 12px 14px;
     border-radius: 12px;
     border: 1px solid #e6e6e6;
@@ -370,28 +371,28 @@ textarea{resize:none;height:80px}
     transition: 0.2s ease;
 }
 
-.faq-btn:hover {
+.faq-btn_ar:hover {
     background: #f6f8ff;
 }
 
-.faq-btn.active {
+.faq-btn_ar.active {
     border: 1.5px solid #3b5cff;
     color: #3b5cff;
     background: #f4f6ff;
 }
 
-.faq-btn.whatsapp {
+.faq-btn_ar.whatsapp {
     font-weight: 500;
 }
 
-.chat-row {
+.chat-row_ar {
     display: flex;
     align-items:end;
     gap: 8px;
     margin: 14px 0;
 }
 
-.bot-icon {
+.bot-icon_ar {
     width: 33px;
     height: 30px;
     background: #ff6a00;
@@ -408,7 +409,7 @@ textarea{resize:none;height:80px}
     color: #999;
 }
 
-.user-reply {
+.user-reply_ar {
     align-self: flex-end;
     margin-left: auto;
     background: #1296f0;
@@ -439,7 +440,7 @@ textarea{resize:none;height:80px}
 }
 
 /* Live chat input */
-.live_chat_footer{
+.live_chat_footer_ar{
     background:#fff;
     padding:5px;
     display:flex;
@@ -456,20 +457,86 @@ textarea{resize:none;height:80px}
     padding: 5px 0 ;
     font-size: 12px;
 }
-.live_chat_footer input{
+.live_chat_footer_ar input{
     padding:10px;
     border-radius:20px;
     border:1px solid var(--border);
     outline:none;
 }
 
-.live_chat_footer button{
+.live_chat_footer_ar button{
     padding:8px 14px;
     border:none;
-    background: var(--primary);
+    
     color:#fff;
     border-radius:20px;
     cursor:pointer;
+}
+.leave_message_ar {
+    width: 100%;
+}
+
+/* Header */
+.leave_header_ar {
+    height: 64px;
+    background: linear-gradient(135deg, #1e88e5, #1565c0);
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    gap: 12px;
+    color: #fff;
+    border-radius: 20px 20px 0 0;
+    margin-bottom: 10px;
+}
+
+/* Back Button */
+.back_btn_ar {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 26px;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+/* Circle Logo */
+.brand_circle {
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.1;
+}
+
+/* Title */
+.leave_header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.submit_button_ar{
+background: var(--primary);
+}
+.end_button_ar{
+background: var(--danger);
+}
+.live_messages_ar{
+    padding: 5px 10px;
+    max-height: 270px;
+    overflow-y: auto;
+}
+.live_chat_ar{
+    border-radius: 20px;
+    /* border: 1px solid grey; */
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 .input_like_textarea{
     width:100%;
@@ -519,13 +586,13 @@ textarea{resize:none;height:80px}
     color: #777;
 }
 
-.custom-select {
+.custom-select_ar {
     position: relative;
     border-bottom: 1px solid #ddd;
     cursor: pointer;
 }
 
-.select-display {
+.select-display_ar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -539,7 +606,7 @@ textarea{resize:none;height:80px}
     font-size: 14px;
 }
 
-.dropdown {
+.dropdown_ar {
     position: absolute;
     left: 0;
     right: 0;
@@ -562,7 +629,7 @@ textarea{resize:none;height:80px}
     outline: none;
 }
 
-.options {
+.options_ar {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -570,17 +637,17 @@ textarea{resize:none;height:80px}
     overflow-y: auto;
 }
 
-.options li {
+.options_ar li {
     padding: 12px;
     font-size: 14px;
     cursor: pointer;
 }
 
-.options li:hover {
+.options_ar li:hover {
     background: #f2f2f2;
 }
 
-.options li.active {
+.options_ar li.active {
     background: #f0f0f0;
     font-weight: 500;
 }
@@ -594,35 +661,37 @@ textarea{resize:none;height:80px}
 }
 
 /* Hide scrollbar but keep scroll */
-.tab_content {
+.tab_content_ar {
     overflow-y: auto;
 
 /* Firefox */
-    scrollbar-width: thin;
-    scrollbar-color: #0ea5e9 transparent;
+    scrollbar-width: 3px;
+    scrollbar-color: #4f4f4f transparent;
 }
 
 /* Default scrollbar */
-.tab_content::-webkit-scrollbar {
-    width: 5px;
-    transition: width 0.25s ease;
-}
-.tab_content:hover::-webkit-scrollbar {
+.tab_content_ar::-webkit-scrollbar {
     width: 3px;
+    height: 6px;
+}
+.tab_content_ar:hover::-webkit-scrollbar {
+    width: 2px;
 }
 
-.tab_content::-webkit-scrollbar-thumb {
-    background-color: #0ea5e9;
+.tab_content_ar::-webkit-scrollbar-thumb {
+   background: rgba(0,0,0,0.35);
     border-radius: 10px;
 }
 
-.tab_content::-webkit-scrollbar-track {
+.tab_content_ar::-webkit-scrollbar-track {
     background: transparent;
 }
 
 /* Responsive */
 @media(max-width:768px){
-
+.live_messages_ar{
+    max-height: 65vh;
+}
     .chatbot_layout_ar{
         width:100%;
     }
@@ -700,3 +769,91 @@ textarea{resize:none;height:80px}
   animation:l4 1s infinite steps(10);
 }
 @keyframes l4 {to{transform: rotate(1turn)}}
+/* ===== MULTI SELECT ===== */
+.multi-select_ar {
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+}
+
+.multi-display_ar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0 10px;
+}
+
+.multi-tags_ar {
+    /* display: grid; */
+    /* grid-template-columns: 1fr 1fr; */
+    
+    display: flex;
+    flex-wrap: wrap;
+    align-items:flex-start;
+    gap: 6px;
+}
+
+.multi-placeholder_ar {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.multi-tag {
+    background: #fff;
+    padding: 4px 10px;
+    border-radius: 14px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid grey;
+    text-align:center;
+}
+
+.multi-tag span {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.multi-dropdown_ar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 115%;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.12);
+    display: none;
+    z-index: 60;
+}
+
+.multi-search {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #eee;
+    padding: 10px 12px;
+    font-size: 14px;
+    outline: none;
+}
+
+.multi-options_ar {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.multi-options_ar li {
+    padding: 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.multi-options_ar li:hover {
+    background: #f2f2f2;
+}
+
+
+
+
