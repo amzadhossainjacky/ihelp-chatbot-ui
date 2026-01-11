@@ -56,8 +56,17 @@
             <div class="tab_content_ar active" id="tab-tickets">
                 <h4 class="ticket_form_heading_ar">Case Information</h4>
                 <div class="ticket_form_ar">
-                    <div class="form_group_ar">
-                        <input type="text" placeholder="Contact Name">
+                    <div class="form_group_ar floating_ar">
+                        <input type="text" id="contact_name_1" required>
+                        <label for="contact_name_1">
+                            Contact Name <span class="gl-form-asterisk">*</span>
+                        </label>
+                    </div>
+                    <div class="form_group_ar floating_ar">
+                        <input type="email" id="contact_name_1" required>
+                        <label for="contact_name_1">
+                            Email <span class="gl-form-asterisk">*</span>
+                        </label>
                     </div>
 
                     <div class="form_group_ar">
@@ -86,8 +95,57 @@
                         </div>
                     </div>
 
+                    <div class="form_group_ar floating_ar">
+                        <textarea id="description" required></textarea>
+                        <label for="message">Description</label>
+                    </div>
                     <div class="form_group_ar">
-                        <input type="text" placeholder="Contact Name">
+                        <label class="field_label">
+                            BSW Application
+                            <span class="info">i</span>
+                        </label>
+
+                        <div class="custom-select_ar">
+                            <div class="select-display_ar">
+                                <span class="selected-value">Steakholder Registration</span>
+                                <span class="chevron"><i class="fa-solid fa-sort-down"></i></span>
+                            </div>
+
+                            <div class="dropdown_ar">
+                                <input type="text" placeholder="Search..." class="search-input">
+
+                                <ul class="options_ar">
+                                    <li class="active" value="Steakholder Registration">Steakholder Registration</li>
+                                    <li value="Trade">Trade Portal</li>
+                                    <li value="Tariff or AI Tariff">Tariff or AI Tariff</li>
+                                    <li value="CLP">CLP</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form_group_ar">
+                        <label class="field_label">
+                            Agency Type
+                            <span class="info">i</span>
+                        </label>
+
+                        <div class="custom-select_ar">
+                            <div class="select-display_ar">
+                                <span class="selected-value">DOE : Department Of Environment</span>
+                                <span class="chevron"><i class="fa-solid fa-sort-down"></i></span>
+                            </div>
+
+                            <div class="dropdown_ar">
+                                <input type="text" placeholder="Search..." class="search-input">
+
+                                <ul class="options_ar">
+                                    <li class="active" value="DOE : Department Of Environment">DOE : Department Of
+                                        Environment</li>
+                                    <li value="DOE : Department Of Environment">DOE : Department Of Environment</li>
+                                    <li value="DOF : Department Of Fisheries">DOF : Department Of Fisheries</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                     <div class="form_group_ar">
                         <label class="field_label">
@@ -116,13 +174,17 @@
                                 </ul>
                             </div>
                         </div>
-
+                        <div class="form_group_ar floating_ar" style="margin-top: 30px;">
+                            <input type="text" id="contact_name_1" required>
+                            <label for="contact_name_1">
+                               Please verify to proceed  <span class="gl-form-asterisk">*</span>
+                            </label>
+                        </div>
                         <!-- optional hidden input -->
                         <!-- <input type="hidden" name="clp_types" id="clpValues"> -->
                     </div>
-                    <div class="form_group_ar">
-                        <input type="text" placeholder="Contact Name">
-                    </div>
+
+
 
                 </div>
 
@@ -130,9 +192,17 @@
 
             <!-- CHAT TAB -->
             <div class="tab_content_ar" id="tab-chat">
-
+                <div id="phone_number_log_ar" class="phone_number_log_ar">
+                    <div class="phone_number_log_ar_container">
+                        <h3>Start With Phone Number</h3>
+                        <input type="text">
+                        <button id="phone_number_log_ar_submit" onclick="toggleNumberAr()"
+                            class="submit">Submit</button>
+                    </div>
+                </div>
                 <!-- FAQ CHAT -->
                 <div id="faq_chat_ar" class="faq-chat">
+
                     <div class="faq-options_ar">
                         <div class="chat-row_ar">
                             <div class="bot-icon_ar">🤖</div>
@@ -174,7 +244,7 @@
                     <div class="leave_message_ar">
                         <div class="leave_header_ar">
                             <button class="back_btn_ar">
-                                  <button id="end_chat" class=""><i class="fa-solid fa-angles-left"></i></button>
+                                <button id="end_chat" class=""><i class="fa-solid fa-angles-left"></i></button>
                             </button>
 
                             <div class="brand_circle">
@@ -184,29 +254,29 @@
                             <h3>Leave a message</h3>
                         </div>
                     </div>
-                   <div class="live_messages_ar">
-                    <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                    <div class="chat_message user">I need help with my account</div>
-                    <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                    <div class="chat_message user">I need help with my account</div>
-                    <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                    <div class="chat_message user">I need help with my account</div>
-                    <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                    <div class="chat_message user">I need help with my account</div>
-                    <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                    <div class="chat_message user">I need help with my account</div>
-                    <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                    <div class="chat_message user">I need help with my account</div>
-                    <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                    <div class="chat_message user">I need help with my account</div>
-                    <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                    <div class="chat_message user">I need help with my account</div>
-                    <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                    <div class="chat_message user">I need help with my account</div>
-                    <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                    <div class="chat_message user">I need help with my account</div>
-                    <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                    <div class="chat_message user">I need help with my account</div>
+                    <div class="live_messages_ar">
+                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
+                        <div class="chat_message user">I need help with my account</div>
+                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
+                        <div class="chat_message user">I need help with my account</div>
+                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
+                        <div class="chat_message user">I need help with my account</div>
+                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
+                        <div class="chat_message user">I need help with my account</div>
+                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
+                        <div class="chat_message user">I need help with my account</div>
+                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
+                        <div class="chat_message user">I need help with my account</div>
+                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
+                        <div class="chat_message user">I need help with my account</div>
+                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
+                        <div class="chat_message user">I need help with my account</div>
+                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
+                        <div class="chat_message user">I need help with my account</div>
+                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
+                        <div class="chat_message user">I need help with my account</div>
+                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
+                        <div class="chat_message user">I need help with my account</div>
                     </div>
 
 

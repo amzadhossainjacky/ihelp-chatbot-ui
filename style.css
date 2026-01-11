@@ -172,9 +172,7 @@
     padding: 10px 0;
 }
 
-.form_group_ar input,
-.form_group_ar select,
-.form_group_ar textarea{
+.form_group_ar select{
     width:100%;
     border:none;
     border-bottom:1px solid var(--border);
@@ -183,8 +181,56 @@
     outline:none;
 }
 
+.floating_ar {
+    position: relative;
+    margin-bottom: 24px;
+}
 
-textarea{resize:none;height:80px}
+.floating_ar input,
+.floating_ar textarea {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--border, #ccc);
+    padding: 25px 4px 6px;
+    font-size: 14px;
+    outline: none;
+    background: transparent;
+}
+
+/* For textarea */
+textarea {
+    resize: none;
+    height: 80px;
+}
+
+/* Label styles */
+.floating_ar label {
+    position: absolute;
+    top: 14px;
+    left: 4px;
+    font-size: 14px;
+    color: #999;
+    pointer-events: none;
+    transition: 0.2s ease all;
+}
+
+/* Float the label when input is focused OR has value */
+.floating_ar input:focus + label,
+.floating_ar input:valid + label,
+.floating_ar textarea:focus + label,
+.floating_ar textarea:valid + label {
+    top: -8px;
+    font-size: 12px;
+    color: #007bff;
+}
+
+/* Optional: border color on focus */
+.floating_ar input:focus,
+.floating_ar textarea:focus {
+    border-bottom-color: #007bff;
+}
+
+/* textarea{resize:none;height:80px} */
 
 /* Footer */
 .chatbot_footer_ar{
@@ -853,7 +899,108 @@ background: var(--danger);
 .multi-options_ar li:hover {
     background: #f2f2f2;
 }
+.phone_number_log_ar{
+    display: none;
+    /* height: 100%; */
+}
+.phone_number_log_ar_container{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 420px;
+    margin: 90px auto;
+    padding: 26px 22px;
+    background: linear-gradient(180deg, #ffffff, #f8fafc);
+    border-radius: 18px;
+    box-shadow: 
+        0 20px 40px rgba(0,0,0,0.08),
+        inset 0 1px 0 rgba(255,255,255,0.6);
+    position: relative;
+}
 
+/* Soft top accent line */
+.phone_number_log_ar_container::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #0ea5e9, #38bdf8);
+    border-radius: 0 0 6px 6px;
+}
 
+/* Title */
+.phone_number_log_ar_container h3{
+    font-weight: 600;
+    font-size: 18px;
+    color: #0f172a;
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+/* Input */
+.phone_number_log_ar_container input{
+    width: 100%;
+    border: 1px solid #e5e7eb;
+    padding: 15px 16px;
+    font-size: 15px;
+    border-radius: 12px;
+    outline: none;
+    transition: all .25s ease;
+    background: #f9fafb;
+}
+
+.phone_number_log_ar_container input::placeholder{
+    color: #9ca3af;
+}
+
+.phone_number_log_ar_container input:focus{
+    border-color: #0ea5e9;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(14,165,233,.18);
+}
+
+/* Button */
+.phone_number_log_ar_container button{
+    margin-top: 6px;
+    align-self: center;
+    padding: 14px 30px;
+    border: none;
+    outline: none;
+    background: linear-gradient(135deg, #0ea5e9, #0284c7);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all .3s ease;
+    width: 60%;
+    letter-spacing: .3px;
+}
+
+/* Button hover */
+.phone_number_log_ar_container button:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(14,165,233,.35);
+}
+
+/* Button click */
+.phone_number_log_ar_container button:active{
+    transform: scale(.95);
+}
+
+/* Mobile optimization */
+@media (max-width: 480px){
+    .phone_number_log_ar_container{
+        margin: 60px 16px;
+        padding: 22px 18px;
+    }
+
+    .phone_number_log_ar_container button{
+        width: 100%;
+    }
+}
 
 
