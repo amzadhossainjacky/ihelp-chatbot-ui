@@ -10,8 +10,17 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
-
-.chatbot_show_button{
+.tab_back_btn_ar_{
+    cursor: pointer;
+}
+.ticket_form_heading_ar{
+    padding: 20px 0;
+    font-size: 20px;
+    text-align: center;
+    color: #1296f0;
+    /* border-bottom: 1px solid #0ea5e9; */
+}
+.chatbot_show_button_ar{
     position:fixed;
     right:20px;
     bottom:20px;
@@ -43,7 +52,7 @@
 }
 
 /* Header */
-.chatbot_header{
+.chatbot_header_ar{
     height:56px;
     background:linear-gradient(135deg,var(--primary),var(--secondary));
     color:#fff;
@@ -62,7 +71,7 @@
 }
 
 /* Trigger Style */
-.header_right {
+.header_right_ar {
     color: white;
     background-color: transparent;
     padding: 10px 15px;
@@ -475,7 +484,7 @@ textarea {
     margin-top: 4px;
 }
 
-.chat_with_agent{
+.chat_with_agent_ar{
     width: 100%;
     text-align:center;
     color:#0ea5e9;
@@ -576,7 +585,7 @@ background: var(--danger);
 }
 .live_messages_ar{
     padding: 5px 10px;
-    max-height: 270px;
+    /* max-height: 90%; */
     overflow-y: auto;
 }
 .live_chat_ar{
@@ -611,7 +620,7 @@ background: var(--danger);
     width:0;
     height:0;
 }
-.field_label {
+.field_label_ar {
     font-size: 14px;
     color: #8a8a8a;
     display: flex;
@@ -741,7 +750,7 @@ background: var(--danger);
     .chatbot_layout_ar{
         width:100%;
     }
-    .chatbot_header{
+    .chatbot_header_ar{
         position:relative;
         padding-right:56px;
     }
@@ -1001,4 +1010,59 @@ background: var(--danger);
     .phone_number_log_ar_container button{
         width: 100%;
     }
+}
+.info-tooltip_ar
+ {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #0d6efd;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Tooltip box */
+.info-tooltip_ar::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 140%;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: #212529;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+/* Tooltip arrow */
+.info-tooltip_ar::before {
+  content: "";
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #212529 transparent transparent transparent;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+/* Hover effect */
+.info-tooltip_ar:hover::after,
+.info-tooltip_ar:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }

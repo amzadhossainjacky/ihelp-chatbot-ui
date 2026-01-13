@@ -12,32 +12,31 @@
 <body>
 
     <!-- Floating Button -->
-    <div class="chatbot_show_button">
+    <div class="chatbot_show_button_ar">
         <i class="fa-solid fa-comments"></i>
     </div>
 
     <!-- Chatbot Layout -->
     <div id="chatbot_layout_ar" class="chatbot_layout_ar">
-
-
+        
         <!-- Header -->
-        <div class="chatbot_header">
+        <div class="chatbot_header_ar">
             <!-- Close button -->
             <div class="close_chatbot_ar">✕</div>
 
-            <i class="fa-solid fa-arrow-left"></i>
+            <i class="fa-solid fa-arrow-left" class="tab_back_btn_ar_" id="tab_back_btn_ar"></i>
             <span id="header_title_ar">Add Ticket</span>
             <div class="header_dropdown_ar" id="langDropdown">
-                <div class="header_right" id="dropdownTrigger_ar">
+                <div class="header_right_ar" id="dropdownTrigger_ar">
                     <i class="fa-solid fa-globe"></i> English <i class="fa-solid fa-caret-down"></i>
                 </div>
 
                 <div class="dropdown_content_ar" id="dropdownMenu">
                     <div class="dropdown_header_ar">Languages</div>
-                    <ul class="language_list">
-                        <li><a href="#">বাংলা</a></li>
-                        <li class="active"><a href="#">English</a></li>
-                    </ul>
+                  <ul class="language_list">
+    <li><a href="#" data-lang="bn">বাংলা</a></li>
+    <li class="active"><a href="#" data-lang="en">English</a></li>
+</ul>
                     <div class="dropdown_footer_ar">
                         Default: <strong>English</strong>
                     </div>
@@ -51,28 +50,29 @@
             <div id="tab_loader" class="loader_overlay">
                 <div class="loader"></div>
             </div>
-
+            
             <!-- TICKETS TAB -->
             <div class="tab_content_ar active" id="tab-tickets">
-                <h4 class="ticket_form_heading_ar">Case Information</h4>
+                <h4 class="ticket_form_heading_ar" data-i18n="case_information">Case Information</h4>
                 <div class="ticket_form_ar">
                     <div class="form_group_ar floating_ar">
                         <input type="text" id="contact_name_1" required>
-                        <label for="contact_name_1">
+                        <label for="contact_name_1" data-i18n="contact_name">
                             Contact Name <span class="gl-form-asterisk">*</span>
                         </label>
                     </div>
                     <div class="form_group_ar floating_ar">
-                        <input type="email" id="contact_name_1" required>
-                        <label for="contact_name_1">
+                        <input type="email" id="email_ar" required>
+                        <label for="contact_name_1" data-i18n="email">
                             Email <span class="gl-form-asterisk">*</span>
                         </label>
                     </div>
 
                     <div class="form_group_ar">
-                        <label class="field_label">
-                            Sector of user reporting issues
-                            <span class="info">i</span>
+                        <label class="field_label_ar" >
+                           <span data-i18n="sector_user">Sector of user reporting issues</span>  
+                            <span class="info-tooltip_ar" data-tooltip="This is your tooltip text"> i</span>
+
                         </label>
 
                         <div class="custom-select_ar">
@@ -94,15 +94,21 @@
                             </div>
                         </div>
                     </div>
-
+    <div class="form_group_ar floating_ar">
+                        <input type="text" id="subject_ar" required>
+                        <label for="subject_ar" data-i18n="subject">
+                            Subject <span class="gl-form-asterisk">*</span>
+                        </label>
+                    </div>
                     <div class="form_group_ar floating_ar">
-                        <textarea id="description" required></textarea>
-                        <label for="message">Description</label>
+                        <textarea id="description_ar"  required></textarea>
+                        <label for="message" data-i18n="description">Description</label>
                     </div>
                     <div class="form_group_ar">
-                        <label class="field_label">
-                            BSW Application
-                            <span class="info">i</span>
+                        <label class="field_label_ar" >
+                           <span data-i18n="bsw_application">BSW Application</span> 
+                          <span class="info-tooltip_ar" data-tooltip="This is your tooltip text"> i</span>
+
                         </label>
 
                         <div class="custom-select_ar">
@@ -124,9 +130,10 @@
                         </div>
                     </div>
                     <div class="form_group_ar">
-                        <label class="field_label">
-                            Agency Type
-                            <span class="info">i</span>
+                        <label class="field_label_ar" >
+                            <span data-i18n="agency_type"> Agency Type</span>
+                           <span class="info-tooltip_ar" data-tooltip="This is your tooltip text"> i</span>
+
                         </label>
 
                         <div class="custom-select_ar">
@@ -148,8 +155,9 @@
                         </div>
                     </div>
                     <div class="form_group_ar">
-                        <label class="field_label">
-                            Type of CLP <span class="info">i</span>
+                        <label class="field_label_ar" >
+                           <span data-i18n="type_of_clp">Type of CLP</span>  <span class="info-tooltip_ar" data-tooltip="This is your tooltip text"> i</span>
+
                         </label>
 
                         <div class="multi-select_ar" id="clpSelect">
@@ -175,8 +183,8 @@
                             </div>
                         </div>
                         <div class="form_group_ar floating_ar" style="margin-top: 30px;">
-                            <input type="text" id="contact_name_1" required>
-                            <label for="contact_name_1">
+                            <input type="text" id="verify_ar" required>
+                            <label for="contact_name_1" data-i18n="verify_proceed">
                                Please verify to proceed  <span class="gl-form-asterisk">*</span>
                             </label>
                         </div>
@@ -194,9 +202,9 @@
             <div class="tab_content_ar" id="tab-chat">
                 <div id="phone_number_log_ar" class="phone_number_log_ar">
                     <div class="phone_number_log_ar_container">
-                        <h3>Start With Phone Number</h3>
+                        <h3 data-i18n="start_with_phone">Start With Phone Number</h3>
                         <input type="text">
-                        <button id="phone_number_log_ar_submit" onclick="toggleNumberAr()"
+                        <button id="phone_number_log_ar_submit" data-i18n="submit"  onclick="toggleNumberAr()"
                             class="submit">Submit</button>
                     </div>
                 </div>
@@ -248,7 +256,7 @@
                             </button>
 
                             <div class="brand_circle">
-                                <span>ZOHO Desk</span>
+                                <span>NBR Desk</span>
                             </div>
 
                             <h3>Leave a message</h3>
@@ -314,19 +322,19 @@
             <div class="ticket_footer_container_ar">
                 <i class="fa-solid fa-paperclip attach_icon"></i>
                 <div class="button_wrapper">
-                    <button class="btn_ar reset">Reset</button>
-                    <button class="btn_ar submit">Submit</button>
+                    <button class="btn_ar reset" data-i18n="reset">Reset</button>
+                    <button class="btn_ar submit" data-i18n="submit">Submit</button>
                 </div>
             </div>
-            <p class="watermark">Powered by iHelpBD</p>
+            <p class="watermark" data-i18n="powered_by">Powered by iHelpBD</p>
         </div>
         <!-- faq chat footer -->
         <div class="chatbot_footer_ar" id="chat_footer_ar">
             <div class="">
-                <div class="chat_with_agent" id="start_live_chat">
-                    <i class="fa-regular fa-comment-dots"></i> Chat with our agent directly
+                <div class="chat_with_agent_ar" id="start_live_chat">
+                    <i class="fa-regular fa-comment-dots"></i> <span data-i18n="live_chat_agent">Chat with our agent directly</span> 
                 </div>
-                <p class="watermark">Powered by iHelpBD</p>
+                <p class="watermark" data-i18n="powered_by">Powered by iHelpBD</p>
             </div>
         </div>
         <!-- live chat footer -->
@@ -342,15 +350,15 @@
                     </div>
                 </div>
             </div>
-            <p class="watermark">Powered by iHelpBD</p>
+            <p class="watermark" data-i18n="powered_by">Powered by iHelpBD</p>
         </div>
         <!-- Product footer -->
         <div class="chatbot_footer_ar" id="product_footer_ar">
-            <p class="watermark">Powered by iHelpBD</p>
+            <p class="watermark" data-i18n="powered_by">Powered by iHelpBD</p>
         </div>
         <!-- knowledge base footer -->
         <div class="chatbot_footer_ar" id="knowledge_footer_ar">
-            <p class="watermark">Powered by iHelpBD</p>
+            <p class="watermark" data-i18n="powered_by">Powered by iHelpBD</p>
         </div>
 
 
@@ -358,19 +366,19 @@
         <div class="chatbot_tabs_ar">
             <div class="tab_ar active" data-tab="tickets">
                 <i class="fa-solid fa-ticket"></i>
-                <span>Tickets</span>
+                <span data-i18n="tickets">Tickets</span>
             </div>
             <div class="tab_ar" data-tab="chat">
                 <i class="fa-solid fa-comment"></i>
-                <span>Chat</span>
+                <span data-i18n="chat">Chat</span>
             </div>
             <div class="tab_ar" data-tab="product">
                 <i class="fa-brands fa-product-hunt"></i>
-                <span>Product</span>
+                <span data-i18n="product">Product</span>
             </div>
             <div class="tab_ar" data-tab="kb">
                 <i class="fa-solid fa-book"></i>
-                <span>Knowledge</span>
+                <span data-i18n="knowledge">Knowledge</span>
             </div>
         </div>
 
