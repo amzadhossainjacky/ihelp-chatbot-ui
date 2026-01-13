@@ -1,7 +1,105 @@
 document.addEventListener('DOMContentLoaded', () => {
+     /* ===============================
+       LANGUAGE DICTIONARY
+    =============================== */
+    const translations = {
+        en: {
+            add_ticket: "Add Ticket",
+            tickets: "Tickets",
+            chat: "Chat",
+            subject: "subject",
+            product: "Product",
+            knowledge: "Knowledge",
+            case_information: "Case Information",
+            contact_name: "Contact Name",
+            email: "Email",
+            description: "Description",
+            sector_user: "Sector of user reporting issues",
+            bsw_application: "BSW Application",
+            agency_type: "Agency Type",
+            type_of_clp: "Type of CLP",
+            verify_proceed: "Please verify to proceed",
+            submit: "Submit",
+            reset: "Reset",
+            powered_by: "Powered by iHelpBD",
+            start_with_phone: "Start With Phone Number",
+            live_chat_agent: "Chat with our agent directly",
+        },
+
+        bn: {
+            add_ticket: "টিকিট যোগ করুন",
+            tickets: "টিকিট",
+            chat: "চ্যাট",
+            subject: "বিষয়",
+            product: "প্রোডাক্ট",
+            knowledge: "জ্ঞানভাণ্ডার",
+            case_information: "কেস তথ্য",
+            contact_name: "যোগাযোগের নাম",
+            email: "ইমেইল",
+            description: "বিবরণ",
+            sector_user: "সমস্যা রিপোর্টকারী ব্যবহারকারীর খাত",
+            bsw_application: "বিএসডব্লিউ অ্যাপ্লিকেশন",
+            agency_type: "সংস্থার ধরন",
+            type_of_clp: "CLP এর ধরন",
+            verify_proceed: "এগিয়ে যেতে যাচাই করুন",
+            submit: "জমা দিন",
+            reset: "রিসেট",
+            powered_by: "iHelpBD দ্বারা চালিত",
+            start_with_phone: "ফোন নম্বর দিয়ে শুরু করুন",
+            live_chat_agent: "সরাসরি আমাদের এজেন্টের সাথে চ্যাট করুন",
+        }
+    };
+
+    /* ===============================
+       LANGUAGE SWITCH FUNCTION
+    =============================== */
+    function setLanguage(lang) {
+
+        // Update all text nodes
+        document.querySelectorAll("[data-i18n]").forEach(el => {
+            const key = el.dataset.i18n;
+            if (translations[lang][key]) {
+                el.innerText = translations[lang][key];
+            }
+        });
+
+        // Update dropdown header label
+        const dropdownTrigger = document.getElementById("dropdownTrigger_ar");
+        dropdownTrigger.innerHTML =
+            `<i class="fa-solid fa-globe"></i> ${lang === "en" ? "English" : "বাংলা"} <i class="fa-solid fa-caret-down"></i>`;
+
+        // Update active language UI
+        document.querySelectorAll(".language_list li")
+            .forEach(li => li.classList.remove("active"));
+
+        document.querySelector(`.language_list a[data-lang="${lang}"]`)
+            ?.parentElement.classList.add("active");
+
+        // Save preference
+        localStorage.setItem("chatbot_lang", lang);
+    }
+
+    /* ===============================
+       LANGUAGE CLICK EVENTS
+    =============================== */
+    document.querySelectorAll(".language_list a").forEach(link => {
+        link.addEventListener("click", e => {
+            e.preventDefault();
+            const lang = link.dataset.lang;
+            setLanguage(lang);
+        });
+    });
+
+    /* ===============================
+       LOAD SAVED LANGUAGE
+    =============================== */
+    const savedLang = localStorage.getItem("chatbot_lang") || "en";
+    setLanguage(savedLang);
+
     let isPhoneStep = true;
-    /* ===== Chat open / close ===== */
-    const chatBtn = document.querySelector('.chatbot_show_button');
+
+    /* ===== CHAT OPEN / CLOSE ===== */
+    const chatBtn = document.querySelector('.chatbot_show_button_ar');
     const chatBox = document.querySelector('.chatbot_layout_ar');
     const closeBtn = document.querySelector('.close_chatbot_ar');
 
@@ -40,6 +138,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const loader = document.getElementById('tab_loader');
 
+    /* ===== TAB HISTORY FOR BACK BUTTON ===== */
+    let tabHistory = [];
+
     /* ===== Loader helper ===== */
     function showLoader(callback) {
         loader.style.display = 'flex';
@@ -52,6 +153,13 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ===== Activate Tab ===== */
     function activateTab(tab) {
         const target = tab.dataset.tab;
+
+        // Push current tab to history
+        const currentActive = document.querySelector('.tab_ar.active');
+        if (currentActive && currentActive.dataset.tab !== target) {
+            tabHistory.push(currentActive.dataset.tab);
+            if (tabHistory.length > 10) tabHistory.shift(); // keep max 10
+        }
 
         showLoader(() => {
 
@@ -69,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             switch (target) {
                 case 'tickets':
-                    headerTitle.innerText = 'Add Ticket';
+                    headerTitle.innerText = translations[savedLang].add_ticket;
                     ticket_footer_ar.style.display = 'block';
                     phone_number_log_ar.style.display = 'none';
                     chat_footer.style.display = 'none';
@@ -80,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 case 'chat':
                     headerTitle.innerText = 'Getting Started';
-
+          
                     liveChat.style.display = 'none';
                     ticket_footer_ar.style.display = 'none';
                     product_footer.style.display = 'none';
@@ -100,6 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     break;
                 case 'product':
                     headerTitle.innerText = 'Product';
+                    // headerTitle.innerText = translations[savedLang].chat;
                     phone_number_log_ar.style.display = 'none';
                     faqChat.style.display = 'none';
                     liveChat.style.display = 'none';
@@ -131,6 +240,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const defaultTab = document.querySelector('.tab_ar[data-tab="tickets"]');
     if (defaultTab) activateTab(defaultTab);
 
+    /* ===== Back Button Functionality ===== */
+    const backBtn = document.getElementById('tab_back_btn_ar'); // your <i> back arrow
+    if (backBtn) {
+        backBtn.addEventListener('click', () => {
+            if (tabHistory.length === 0) return;
+            const previousTab = tabHistory.pop();
+            const tabElement = document.querySelector(`.tab_ar[data-tab="${previousTab}"]`);
+            if (tabElement) activateTab(tabElement);
+        });
+    }
     /* ===== Start / End Live Chat ===== */
     const startChat = document.getElementById('start_live_chat');
     const endChat = document.getElementById('end_chat');
