@@ -18,11 +18,11 @@
 
     <!-- Chatbot Layout -->
     <div id="chatbot_layout_ar" class="chatbot_layout_ar">
-        
+
         <!-- Header -->
         <div class="chatbot_header_ar">
             <!-- Close button -->
-            <div class="close_chatbot_ar">✕</div>
+            <div class="close_chatbot_ar"><i class="fa-solid fa-xmark"></i></div>
 
             <i class="fa-solid fa-arrow-left" class="tab_back_btn_ar_" id="tab_back_btn_ar"></i>
             <span id="header_title_ar">Add Ticket</span>
@@ -33,10 +33,10 @@
 
                 <div class="dropdown_content_ar" id="dropdownMenu">
                     <div class="dropdown_header_ar">Languages</div>
-                  <ul class="language_list">
-    <li><a href="#" data-lang="bn">বাংলা</a></li>
-    <li class="active"><a href="#" data-lang="en">English</a></li>
-</ul>
+                    <ul class="language_list">
+                        <li><a href="#" data-lang="bn">বাংলা</a></li>
+                        <li class="active"><a href="#" data-lang="en">English</a></li>
+                    </ul>
                     <div class="dropdown_footer_ar">
                         Default: <strong>English</strong>
                     </div>
@@ -50,7 +50,7 @@
             <div id="tab_loader" class="loader_overlay">
                 <div class="loader"></div>
             </div>
-            
+
             <!-- TICKETS TAB -->
             <div class="tab_content_ar active" id="tab-tickets">
                 <h4 class="ticket_form_heading_ar" data-i18n="case_information">Case Information</h4>
@@ -69,8 +69,8 @@
                     </div>
 
                     <div class="form_group_ar">
-                        <label class="field_label_ar" >
-                           <span data-i18n="sector_user">Sector of user reporting issues</span>  
+                        <label class="field_label_ar">
+                            <span data-i18n="sector_user">Sector of user reporting issues</span>
                             <span class="info-tooltip_ar" data-tooltip="This is your tooltip text"> i</span>
 
                         </label>
@@ -94,20 +94,20 @@
                             </div>
                         </div>
                     </div>
-    <div class="form_group_ar floating_ar">
+                    <div class="form_group_ar floating_ar">
                         <input type="text" id="subject_ar" required>
                         <label for="subject_ar" data-i18n="subject">
                             Subject <span class="gl-form-asterisk">*</span>
                         </label>
                     </div>
                     <div class="form_group_ar floating_ar">
-                        <textarea id="description_ar"  required></textarea>
+                        <textarea id="description_ar" required></textarea>
                         <label for="message" data-i18n="description">Description</label>
                     </div>
                     <div class="form_group_ar">
-                        <label class="field_label_ar" >
-                           <span data-i18n="bsw_application">BSW Application</span> 
-                          <span class="info-tooltip_ar" data-tooltip="This is your tooltip text"> i</span>
+                        <label class="field_label_ar">
+                            <span data-i18n="bsw_application">BSW Application</span>
+                            <span class="info-tooltip_ar" data-tooltip="This is your tooltip text"> i</span>
 
                         </label>
 
@@ -130,9 +130,9 @@
                         </div>
                     </div>
                     <div class="form_group_ar">
-                        <label class="field_label_ar" >
+                        <label class="field_label_ar">
                             <span data-i18n="agency_type"> Agency Type</span>
-                           <span class="info-tooltip_ar" data-tooltip="This is your tooltip text"> i</span>
+                            <span class="info-tooltip_ar" data-tooltip="This is your tooltip text"> i</span>
 
                         </label>
 
@@ -155,8 +155,9 @@
                         </div>
                     </div>
                     <div class="form_group_ar">
-                        <label class="field_label_ar" >
-                           <span data-i18n="type_of_clp">Type of CLP</span>  <span class="info-tooltip_ar" data-tooltip="This is your tooltip text"> i</span>
+                        <label class="field_label_ar">
+                            <span data-i18n="type_of_clp">Type of CLP</span>
+                            <span class="info-tooltip_ar" data-tooltip="This is your tooltip text"> i</span>
 
                         </label>
 
@@ -167,7 +168,6 @@
                                 </div>
                                 <span class="chevron"><i class="fa-solid fa-sort-down"></i>
                             </div>
-
                             <div class="multi-dropdown_ar">
                                 <input type="text" class="multi-search" placeholder="Search..." />
 
@@ -182,14 +182,42 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="form_group_ar floating_ar" style="margin-top: 30px;">
-                            <input type="text" id="verify_ar" required>
-                            <label for="contact_name_1" data-i18n="verify_proceed">
-                               Please verify to proceed  <span class="gl-form-asterisk">*</span>
+                        <div class="form_group_ar" style="margin-top: 30px;">
+                            <label class="field_label_ar">
+                                <span data-i18n="issue_category">Issue Category</span>
+                                <span class="info-tooltip_ar" data-tooltip="Issue Category"> i</span>
+
                             </label>
+
+                            <div class="custom-select_ar">
+                                <div class="select-display_ar">
+                                    <span class="selected-value">Activation Email</span>
+                                    <span class="chevron"><i class="fa-solid fa-sort-down"></i></span>
+                                </div>
+
+                                <div class="dropdown_ar">
+                                    <input type="text" placeholder="Search..." class="search-input">
+
+                                    <ul class="options_ar">
+                                        <li class="active" value="Activation Email">Activation Email</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form_group_ar floating_ar" style="margin-top: 30px;">
+                            <div class="captcha-box">
+                                <canvas id="captchaCanvas" width="130" height="50"></canvas>
+                                <button type="button" id="refreshCaptcha">↻</button>
+                            </div>
+                            <input placeholder="Please verify to proceed" type="text" id="verify_ar" required>
+                            <!-- <label for="contact_name_1" data-i18n="verify_proceed">
+                                Please verify to proceed <span class="gl-form-asterisk">*</span>
+                            </label> -->
+
+                            <span id="captchaMsg"></span>
                         </div>
                         <!-- optional hidden input -->
-                        <!-- <input type="hidden" name="clp_types" id="clpValues"> -->
+                        <input type="hidden" name="clp_types" id="clpValues">
                     </div>
 
 
@@ -204,7 +232,7 @@
                     <div class="phone_number_log_ar_container">
                         <h3 data-i18n="start_with_phone">Start With Phone Number</h3>
                         <input type="text">
-                        <button id="phone_number_log_ar_submit" data-i18n="submit"  onclick="toggleNumberAr()"
+                        <button id="phone_number_log_ar_submit" data-i18n="submit" onclick="toggleNumberAr()"
                             class="submit">Submit</button>
                     </div>
                 </div>
@@ -252,39 +280,41 @@
                     <div class="leave_message_ar">
                         <div class="leave_header_ar">
                             <button class="back_btn_ar">
-                                <button id="end_chat" class=""><i class="fa-solid fa-angles-left"></i></button>
+                                <button id="end_chat" class="end_button_ar"><i class="fa-solid fa-angles-left"></i></button>
                             </button>
 
                             <div class="brand_circle">
-                                <span>NBR Desk</span>
+                                <span>BSW Desk</span>
                             </div>
 
                             <h3>Leave a message</h3>
                         </div>
                     </div>
                     <div class="live_messages_ar">
-                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                        <div class="chat_message user">I need help with my account</div>
-                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                        <div class="chat_message user">I need help with my account</div>
-                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                        <div class="chat_message user">I need help with my account</div>
-                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                        <div class="chat_message user">I need help with my account</div>
-                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                        <div class="chat_message user">I need help with my account</div>
-                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                        <div class="chat_message user">I need help with my account</div>
-                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                        <div class="chat_message user">I need help with my account</div>
-                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                        <div class="chat_message user">I need help with my account</div>
-                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                        <div class="chat_message user">I need help with my account</div>
-                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                        <div class="chat_message user">I need help with my account</div>
-                        <div class="chat_message bot">Hello 👋 I’m an agent. How can I help?</div>
-                        <div class="chat_message user">I need help with my account</div>
+                        <div class="agent_msg_ar">
+                            <span class="agentname_ar">Operator</span>
+                            <div class="chat_message_ar bot">
+                                vfjjdhhdh
+                            </div>
+                            <img src="spider.jpg" class="image_text_ar" id="image_text_ar" alt="">
+                            <span class="reply_time_live_chat_agent">03:56 PM</span>
+                        </div>
+                        <div class="user_msg_ar">
+                            <span class="username_ar">You</span>
+                            <div class="chat_message_ar user">I need help with my account</div>
+                            <span class="reply_time_live_chat_user">03:56 PM</span>
+                        </div>
+                        <div class="agent_msg_ar">
+                           <span class="agentname_ar">Operator</span>
+                            <div class="chat_message_ar bot">Hello 👋 I’m an agent. How can I help?</div>
+                            <span class="reply_time_live_chat_agent">03:56 PM</span>
+                        </div>
+                        <div class="user_msg_ar">
+                            <span class="username_ar">You</span>
+                            <div class="chat_message_ar user">I need help with my account</div>
+                            <span class="reply_time_live_chat_user">03:56 PM</span>
+                        </div>
+
                     </div>
 
 
@@ -295,22 +325,110 @@
 
             <!-- KNOWLEDGE BASE TAB -->
             <div class="tab_content_ar" id="tab-product">
-                <span style="color : red;">Upcoming....</span>
+               <div class="carousel_wrapper_ar">
+    <button class="nav_ar prev_ar" id="prevBtn"><i class="fa-solid fa-angle-left"></i></button>
+
+    <div class="carousel_container_ar">
+        <ul class="carousel_ar" id="carousel_ar">
+            <li>
+                <div class="product_card_ar">
+                    <div class="product_card_img_ar">
+                        <img src="spider.jpg" alt="Product 1">
+                    </div>
+                    <div class="product_card_body_ar">
+                        <h4>Prof.8</h4>
+                        <p>X10CT8</p>
+                        <button class="product_btn_ar">Find out more</button>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="product_card_ar">
+                    <div class="product_card_img_ar">
+                        <img src="spider.jpg" alt="Product 2">
+                    </div>
+                    <div class="product_card_body_ar">
+                        <h4>Prof.9</h4>
+                        <p>Next Gen Model</p>
+                        <button class="product_btn_ar">Find out more</button>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="product_card_ar">
+                    <div class="product_card_img_ar">
+                        <img src="spider.jpg" alt="Product 3">
+                    </div>
+                    <div class="product_card_body_ar">
+                        <h4>Prof.10</h4>
+                        <p>Ultra Series</p>
+                        <button class="product_btn_ar">Find out more</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <button class="nav_ar next_ar" id="nextBtn"><i class="fa-solid fa-angle-right"></i></button>
+</div>
+
             </div>
             <div class="tab_content_ar" id="tab-kb">
                 <div class="kb_item">
                     <h5>How to create a ticket?</h5>
-                    <p>Go to Tickets → Add Ticket → Fill required fields.</p>
+                    <div>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque blanditiis soluta quidem. Numquam, totam rem?
+
+                    </div>
                 </div>
 
                 <div class="kb_item">
                     <h5>How to reset password?</h5>
-                    <p>Use the forgot password option from login.</p>
+                       <div>
+                    <p class="sty_k13su9cls">The Certificate, License, Permit (CLP) is a framework commonly used in trade and regulatory environments to manage the necessary authorizations and documents required for various business activities. In the context of the Bangladesh Single Window (BSW), the CLP framework refers to the collection of certificates, licenses, and permits that traders and businesses need to obtain for the import, export, and transit of goods.</p><h3 class="stykl01bkcls">Key Components of CLP</h3>
+                    <div>
+                        <h3>testtt</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea magnam iste incidunt dignissimos atque esse itaque assumenda tempora libero autem quidem eos, deleniti illum facere sed ut porro? Illum, voluptatem!</p>
+                    </div>
+                    <div>
+                        <h5>testtt</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea magnam iste incidunt dignissimos atque esse itaque assumenda tempora libero autem quidem eos, deleniti illum facere sed ut porro? Illum, voluptatem!</p>
+                    </div>
+
+                       </div>
                 </div>
 
                 <div class="kb_item">
                     <h5>How to contact support?</h5>
-                    <p>Use the chat or ticket option anytime.</p>
+                      <div>h</div>
+                </div>
+                <div class="kb_item">
+                    <h5>How to contact support?</h5>
+                      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque blanditiis soluta quidem. Numquam, totam rem?</div>
+                </div>
+                <div class="kb_item">
+                    <h5>How to contact support?</h5>
+                      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque blanditiis soluta quidem. Numquam, totam rem?</div>
+                </div>
+                <div class="kb_item">
+                    <h5>How to contact support?</h5>
+                      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque blanditiis soluta quidem. Numquam, totam rem?</div>
+                </div>
+                <div class="kb_item">
+                    <h5>How to contact support?</h5>
+                      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque blanditiis soluta quidem. Numquam, totam rem?</div>
+                </div>
+                <div class="kb_item">
+                    <h5>How to contact support?</h5>
+                      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque blanditiis soluta quidem. Numquam, totam rem?</div>
+                </div>
+                <div class="kb_item">
+                    <h5>How to contact support?</h5>
+                      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque blanditiis soluta quidem. Numquam, totam rem?</div>
+                </div>
+                <div class="kb_item">
+                    <h5>How to contact support?</h5>
+                      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque blanditiis soluta quidem. Numquam, totam rem?</div>
                 </div>
             </div>
 
@@ -320,8 +438,15 @@
         <!-- Ticket Footer -->
         <div class="chatbot_footer_ar" id="ticket_footer_ar">
             <div class="ticket_footer_container_ar">
-                <i class="fa-solid fa-paperclip attach_icon"></i>
-                <div class="button_wrapper">
+                <!-- <i class="fa-solid fa-paperclip attach_icon_ar"></i> -->
+                <div class="attachment_wrapper_ar">
+                    <i class="fa-solid fa-paperclip attach_icon_ar" id="attachBtn"></i>
+                    <input type="file" id="attachmentInput" multiple style="display:none;">
+                    <div class="attachment_list_ar"></div>
+                </div>
+
+
+                <div class="button_wrapper_ar">
                     <button class="btn_ar reset" data-i18n="reset">Reset</button>
                     <button class="btn_ar submit" data-i18n="submit">Submit</button>
                 </div>
@@ -332,7 +457,8 @@
         <div class="chatbot_footer_ar" id="chat_footer_ar">
             <div class="">
                 <div class="chat_with_agent_ar" id="start_live_chat">
-                    <i class="fa-regular fa-comment-dots"></i> <span data-i18n="live_chat_agent">Chat with our agent directly</span> 
+                    <i class="fa-regular fa-comment-dots"></i> <span data-i18n="live_chat_agent">Chat with our agent
+                        directly</span>
                 </div>
                 <p class="watermark" data-i18n="powered_by">Powered by iHelpBD</p>
             </div>

@@ -1,4 +1,82 @@
 document.addEventListener('DOMContentLoaded', () => {
+const carousel = document.getElementById('carousel_ar');
+const nextBtn = document.getElementById('nextBtn');
+const prevBtn = document.getElementById('prevBtn');
+const cards = document.querySelectorAll('.carousel_ar li');
+
+let currentIndex = 0;
+
+function updateCarousel() {
+    // Moves the UL left/right by 100% of its width per index
+    const offset = -currentIndex * 100;
+    carousel.style.transform = `translateX(${offset}%)`;
+}
+
+nextBtn.addEventListener('click', () => {
+    if (currentIndex < cards.length - 1) {
+        currentIndex++;
+    } else {
+        currentIndex = 0; // Loop back to start
+    }
+    updateCarousel();
+});
+
+prevBtn.addEventListener('click', () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+    } else {
+        currentIndex = cards.length - 1; // Loop to end
+    }
+    updateCarousel();
+});
+
+
+    
+    const attachBtn = document.getElementById('attachBtn');
+    const attachmentInput = document.getElementById('attachmentInput');
+    const attachmentList = document.querySelector('.attachment_list_ar');
+
+    let attachments = []; // store selected files
+
+    // Open file selector
+    attachBtn.addEventListener('click', () => {
+        attachmentInput.click();
+    });
+
+    // Handle file selection
+    attachmentInput.addEventListener('change', (e) => {
+        const files = Array.from(e.target.files);
+
+        files.forEach(file => {
+            // Avoid duplicates
+            if (!attachments.find(f => f.name === file.name && f.size === file.size)) {
+                attachments.push(file);
+                renderAttachment(file);
+            }
+        });
+
+        // Clear input for next selection
+        attachmentInput.value = '';
+    });
+
+    function renderAttachment(file) {
+        const tag = document.createElement('div');
+        tag.className = 'attachment_tag_ar';
+        tag.textContent = file.name;
+
+        const removeBtn = document.createElement('span');
+        removeBtn.innerHTML = '&times;';
+        removeBtn.addEventListener('click', () => {
+            attachments = attachments.filter(f => f !== file);
+            tag.remove();
+        });
+
+        tag.appendChild(removeBtn);
+        attachmentList.appendChild(tag);
+    }
+
+    // Optional: get attachments before sending form
+    window.getAttachments = () => attachments; // returns array of File objects
      /* ===============================
        LANGUAGE DICTIONARY
     =============================== */
@@ -6,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         en: {
             add_ticket: "Add Ticket",
             tickets: "Tickets",
+            issue_category: "Issue Category",
             chat: "Chat",
             subject: "subject",
             product: "Product",
@@ -29,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
         bn: {
             add_ticket: "টিকিট যোগ করুন",
             tickets: "টিকিট",
+              issue_category: "সমস্যার ধরন ",
             chat: "চ্যাট",
             subject: "বিষয়",
             product: "প্রোডাক্ট",
@@ -419,7 +499,92 @@ document.addEventListener('DOMContentLoaded', () => {
             d.style.display = 'none';
         });
     });
+let captchaText = '';
 
+function generateCaptcha() {
+    const canvas = document.getElementById('captchaCanvas');
+    const ctx = canvas.getContext('2d');
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789@#$%';
+    captchaText = '';
+
+    for (let i = 0; i < 6; i++) {
+        captchaText += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+
+    // Background
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.font = 'italic 26px Georgia';
+    ctx.textBaseline = 'middle';
+
+    for (let i = 0; i < captchaText.length; i++) {
+        ctx.save();
+
+        const x = 15 + i * 18;
+        const y = canvas.height / 2 + random(-6, 6);
+        const angle = random(-0.5, 0.5);
+
+        ctx.translate(x, y);
+        ctx.rotate(angle);
+
+        ctx.shadowColor = 'rgba(0,0,0,0.4)';
+        ctx.shadowBlur = 4;
+        ctx.shadowOffsetX = 2;
+        ctx.shadowOffsetY = 2;
+
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = '#333';
+        ctx.strokeText(captchaText[i], 0, 0);
+
+        ctx.fillStyle = '#000';
+        ctx.fillText(captchaText[i], 0, 0);
+
+        ctx.restore();
+    }
+
+    // Noise curve
+    ctx.strokeStyle = '#999';
+    ctx.beginPath();
+    ctx.moveTo(0, random(10, 40));
+    ctx.bezierCurveTo(30, random(0, 50), 80, random(0, 50), canvas.width, random(10, 40));
+    ctx.stroke();
+
+    // Reset message & input on refresh
+    document.getElementById('verify_ar').value = '';
+    document.getElementById('captchaMsg').textContent = '';
+}
+
+function random(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+/* ✅ VALIDATION */
+document.getElementById('verify_ar').addEventListener('input', function () {
+    const msg = document.getElementById('captchaMsg');
+
+    if (this.value.length === captchaText.length) {
+        if (this.value === captchaText) {
+            msg.textContent = '✔ CAPTCHA matched';
+            msg.style.color = 'green';
+        } else {
+            msg.textContent = '✖ CAPTCHA not matched';
+            msg.style.color = 'red';
+        }
+    } else {
+        msg.textContent = '';
+    }
+});
+
+/* Refresh */
+document.getElementById('captchaCanvas').addEventListener('click', generateCaptcha);
+document.getElementById('refreshCaptcha').addEventListener('click', generateCaptcha);
+
+/* Load */
+generateCaptcha();
 });
 
 /* ===== Custom Select ===== */
@@ -481,3 +646,5 @@ function toggleNumberAr() {
 document.addEventListener('click', () => {
     document.querySelectorAll('.dropdown_ar').forEach(d => d.style.display = 'none');
 });
+
+
