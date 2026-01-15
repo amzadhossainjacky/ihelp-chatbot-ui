@@ -223,17 +223,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     chatBtn.addEventListener('click', () => {
         chatBox.style.display = 'flex';
-        chatBox.classList.add('slide-up');
+        chatBox.classList.add('slide_up');
         chatBtn.style.display = 'none';
     });
 
     closeBtn.addEventListener('click', () => {
-        chatBox.classList.remove('slide-up');
-        chatBox.classList.add('fade-out');
+        chatBox.classList.remove('slide_up');
+        chatBox.classList.add('fade_out');
 
         setTimeout(() => {
             chatBox.style.display = 'none';
-            chatBox.classList.remove('fade-out');
+            chatBox.classList.remove('fade_out');
             chatBtn.style.display = 'flex';
         }, 250);
     });
@@ -284,11 +284,11 @@ document.addEventListener('DOMContentLoaded', () => {
             tabs.forEach(t => t.classList.remove('active_ar'));
             tab.classList.add('active_ar');
 
-            contents.forEach(c => c.classList.remove('active_ar', 'fade-in'));
+            contents.forEach(c => c.classList.remove('active_ar', 'fade_in'));
 
-            const activeContent = document.getElementById(`tab-${target}`);
+            const activeContent = document.getElementById(`tab_${target}`);
             if (activeContent) {
-                activeContent.classList.add('active_ar', 'fade-in');
+                activeContent.classList.add('active_ar', 'fade_in');
             }
 
             switch (target) {
@@ -378,7 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
             showLoader(() => {
                 faqChat.style.display = 'none';
                 liveChat.style.display = 'block';
-                liveChat.classList.add('slide-up');
+                liveChat.classList.add('slide_up');
 
                 headerTitle.innerText = 'BSW Service Desk';
                 chat_footer.style.display = 'none';
@@ -389,14 +389,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (endChat) {
         endChat.addEventListener('click', () => {
-            liveChat.classList.add('fade-out');
+            liveChat.classList.add('fade_out');
 
             setTimeout(() => {
                 liveChat.style.display = 'none';
-                liveChat.classList.remove('fade-out');
+                liveChat.classList.remove('fade_out');
 
                 faqChat.style.display = 'block';
-                faqChat.classList.add('fade-in');
+                faqChat.classList.add('fade_in');
 
                 const lang = localStorage.getItem("chatbot_lang") || "en";
                 headerTitle.innerText = translations[lang].chat;
@@ -443,13 +443,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ===== Multi Select (CLP) – Hide Selected Options ===== */
-    document.querySelectorAll('.multi-select_ar').forEach(select => {
+    document.querySelectorAll('.multi_select_ar').forEach(select => {
 
-        const display = select.querySelector('.multi-display_ar');
-        const dropdown = select.querySelector('.multi-dropdown_ar');
-        const search = select.querySelector('.multi-search_ar');
-        const options = select.querySelectorAll('.multi-options_ar li');
-        const tagsBox = select.querySelector('.multi-tags_ar');
+        const display = select.querySelector('.multi_display_ar');
+        const dropdown = select.querySelector('.multi_dropdown_ar');
+        const search = select.querySelector('.multi_search_ar');
+        const options = select.querySelectorAll('.multi_options_ar li');
+        const tagsBox = select.querySelector('.multi_tags_ar');
         const hiddenInp = document.getElementById('clpValues_ar');
 
         let values = [];
@@ -458,7 +458,7 @@ document.addEventListener('DOMContentLoaded', () => {
         display.addEventListener('click', e => {
             e.stopPropagation();
 
-            document.querySelectorAll('.multi-dropdown_ar').forEach(d => {
+            document.querySelectorAll('.multi_dropdown_ar').forEach(d => {
                 if (d !== dropdown) d.style.display = 'none';
             });
 
@@ -488,7 +488,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 option.style.display = 'none';
 
                 const tag = document.createElement('div');
-                tag.className = 'multi-tag';
+                tag.className = 'multi_tag';
                 tag.innerHTML = `${text} <span>&times;</span>`;
 
                 tag.querySelector('span').addEventListener('click', ev => {
@@ -529,14 +529,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function updatePlaceholder() {
-            const ph = tagsBox.querySelector('.multi-placeholder_ar');
+            const ph = tagsBox.querySelector('.multi_placeholder_ar');
             ph.style.display = values.length ? 'none' : 'inline';
         }
     });
 
     /* Outside click close */
     document.addEventListener('click', () => {
-        document.querySelectorAll('.multi-dropdown_ar').forEach(d => {
+        document.querySelectorAll('.multi_dropdown_ar').forEach(d => {
             d.style.display = 'none';
         });
     });
@@ -630,13 +630,13 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ===== Custom Select ===== */
-document.querySelectorAll('.custom-select_ar').forEach(select => {
+document.querySelectorAll('.custom_select_ar').forEach(select => {
 
-    const display = select.querySelector('.select-display_ar');
+    const display = select.querySelector('.select_display_ar');
     const dropdown = select.querySelector('.dropdown_ar');
-    const search = select.querySelector('.search-input_ar');
+    const search = select.querySelector('.search_input_ar');
     const options = select.querySelectorAll('.options_ar li');
-    const selectedValue = select.querySelector('.selected-value_ar');
+    const selectedValue = select.querySelector('.selected_value_ar');
 
     display.addEventListener('click', e => {
         e.stopPropagation();

@@ -497,18 +497,18 @@ textarea {
     transition: rotate 1s ease;
 }
 
-.faq-title_ar {
+.faq_title_ar {
     font-size: 14px;
     color: #333;
     margin-bottom: 12px;
 }
 
-/* .faq-options_ar {
+/* .faq_options_ar {
     display: flex;
     flex-direction: column;
     gap: 10px;
 } */
-.faq-buttons_ar {
+.faq_buttons_ar {
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -517,7 +517,7 @@ textarea {
     padding: 15px;
     border-radius: 10px;
 }
-.faq-img_ar{
+.faq_img_ar{
      display: flex;
     flex-direction: column;
     width: 80%;
@@ -526,7 +526,7 @@ textarea {
     padding: 15px;
     border-radius: 10px;
 }
-.faq-btn_ar {
+.faq_btn_ar {
     padding: 12px 14px;
     border-radius: 12px;
     border: 1px solid #e6e6e6;
@@ -537,28 +537,28 @@ textarea {
     transition: 0.2s ease;
 }
 
-.faq-btn_ar:hover {
+.faq_btn_ar:hover {
     background: #f6f8ff;
 }
 
-.faq-btn_ar.active_ar {
+.faq_btn_ar.active_ar {
     border: 1.5px solid #3b5cff;
     color: #3b5cff;
     background: #f4f6ff;
 }
 
-.faq-btn_ar.whatsapp_ar {
+.faq_btn_ar.whatsapp_ar {
     font-weight: 500;
 }
 
-.chat-row_ar {
+.chat_row_ar {
     display: flex;
     align-items: end;
     gap: 8px;
     margin: 14px 0;
 }
 
-.bot-icon_ar {
+.bot_icon_ar {
     width: 33px;
     height: 30px;
     background: #ff6a00;
@@ -570,14 +570,14 @@ textarea {
     font-size: 20px;
 }
 
-.chat-time_ar {
+.chat_time_ar {
     font-size: 11px;
     color: #999;
 }
 .faq_chat_img_ar{
     border-radius: 10px;
 }
-.user-reply_ar {
+.user_reply_ar {
     align-self: flex-end;
     margin-left: auto;
     background: #1296f0;
@@ -589,7 +589,7 @@ textarea {
     position: relative;
 }
 
-.reply-time_ar {
+.reply_time_ar {
     display: block;
     font-size: 10px;
     color: #e0f2ff;
@@ -811,13 +811,13 @@ textarea {
     color: #777;
 }
 
-.custom-select_ar {
+.custom_select_ar {
     position: relative;
     border-bottom: 1px solid #ddd;
     cursor: pointer;
 }
 
-.select-display_ar {
+.select_display_ar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -845,7 +845,7 @@ textarea {
     overflow-y: scroll;
 }
 
-.search-input_ar {
+.search_input_ar {
     width: 100%;
     border: none;
     border-bottom: 1px solid #eee;
@@ -943,15 +943,15 @@ textarea {
 }
 
 /* ===== Animations ===== */
-.fade-in {
+.fade_in {
     animation: fadeIn .35s ease forwards;
 }
 
-.fade-out {
+.fade_out {
     animation: fadeOut .25s ease forwards;
 }
 
-.slide-up {
+.slide_up {
     animation: slideUp .35s ease forwards;
 }
 
@@ -1023,20 +1023,20 @@ textarea {
 }
 
 /* ===== MULTI SELECT ===== */
-.multi-select_ar {
+.multi_select_ar {
     position: relative;
     border-bottom: 1px solid var(--border);
     cursor: pointer;
 }
 
-.multi-display_ar {
+.multi_display_ar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 6px 0 10px;
 }
 
-.multi-tags_ar {
+.multi_tags_ar {
     /* display: grid; */
     /* grid-template-columns: 1fr 1fr; */
 
@@ -1046,12 +1046,12 @@ textarea {
     gap: 6px;
 }
 
-.multi-placeholder_ar {
+.multi_placeholder_ar {
     color: var(--muted);
     font-size: 14px;
 }
 
-.multi-tag {
+.multi_tag {
     background: #fff;
     padding: 4px 10px;
     border-radius: 14px;
@@ -1063,12 +1063,12 @@ textarea {
     text-align: center;
 }
 
-.multi-tag span {
+.multi_tag span {
     cursor: pointer;
     font-weight: bold;
 }
 
-.multi-dropdown_ar {
+.multi_dropdown_ar {
     position: absolute;
     left: 0;
     right: 0;
@@ -1080,7 +1080,7 @@ textarea {
     z-index: 60;
 }
 
-.multi-search_ar {
+.multi_search_ar {
     width: 100%;
     border: none;
     border-bottom: 1px solid #eee;
@@ -1089,7 +1089,7 @@ textarea {
     outline: none;
 }
 
-.multi-options_ar {
+.multi_options_ar {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -1097,13 +1097,13 @@ textarea {
     overflow-y: auto;
 }
 
-.multi-options_ar li {
+.multi_options_ar li {
     padding: 12px;
     font-size: 14px;
     cursor: pointer;
 }
 
-.multi-options_ar li:hover {
+.multi_options_ar li:hover {
     background: #f2f2f2;
 }
 
@@ -1212,7 +1212,7 @@ textarea {
     }
 }
 
-.info-tooltip_ar {
+.info_tooltip_ar {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1228,7 +1228,7 @@ textarea {
 }
 
 /* Tooltip box */
-.info-tooltip_ar::after {
+.info_tooltip_ar::after {
     content: attr(data-tooltip);
     position: absolute;
     bottom: 140%;
@@ -1247,7 +1247,7 @@ textarea {
 }
 
 /* Tooltip arrow */
-.info-tooltip_ar::before {
+.info_tooltip_ar::before {
     content: "";
     position: absolute;
     bottom: 125%;
@@ -1261,13 +1261,13 @@ textarea {
 }
 
 /* Hover effect */
-.info-tooltip_ar:hover::after,
-.info-tooltip_ar:hover::before {
+.info_tooltip_ar:hover::after,
+.info_tooltip_ar:hover::before {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
 }
 
-.captcha-box_ar {
+.captcha_box_ar {
     display: flex;
     align-items: center;
     gap: 10px;
