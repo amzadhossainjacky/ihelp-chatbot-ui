@@ -21,21 +21,22 @@
 
         <!-- Header -->
         <div class="chatbot_header_ar">
-            <!-- Close button -->
-            <div class="close_chatbot_ar"><i class="fa-solid fa-xmark"></i></div>
 
+            <!-- Close button -->
+            <div class="close_chatbot_ar">✕</div>
+            <img class="header_logo_ar" src="spider.jpg" alt="">
             <i class="fa-solid fa-arrow-left" class="tab_back_btn_ar_" id="tab_back_btn_ar"></i>
             <span id="header_title_ar">Add Ticket</span>
-            <div class="header_dropdown_ar" id="langDropdown">
+            <div class="header_dropdown_ar" id="langDropdown_ar">
                 <div class="header_right_ar" id="dropdownTrigger_ar">
                     <i class="fa-solid fa-globe"></i> English <i class="fa-solid fa-caret-down"></i>
                 </div>
 
-                <div class="dropdown_content_ar" id="dropdownMenu">
+                <div class="dropdown_content_ar" id="dropdownMenu_ar">
                     <div class="dropdown_header_ar">Languages</div>
-                    <ul class="language_list">
+                    <ul class="language_list_ar">
                         <li><a href="#" data-lang="bn">বাংলা</a></li>
-                        <li class="active"><a href="#" data-lang="en">English</a></li>
+                        <li class="active_ar"><a href="#" data-lang="en">English</a></li>
                     </ul>
                     <div class="dropdown_footer_ar">
                         Default: <strong>English</strong>
@@ -47,24 +48,24 @@
         <!-- BODY WRAPPER -->
         <div class="chatbot_body_wrapper_ar">
             <!-- Loader Overlay -->
-            <div id="tab_loader" class="loader_overlay">
-                <div class="loader"></div>
+            <div id="tab_loader_ar" class="loader_overlay_ar">
+                <div class="loader_ar"></div>
             </div>
 
             <!-- TICKETS TAB -->
-            <div class="tab_content_ar active" id="tab-tickets">
+            <div class="tab_content_ar active_ar" id="tab-tickets_ar">
                 <h4 class="ticket_form_heading_ar" data-i18n="case_information">Case Information</h4>
                 <div class="ticket_form_ar">
                     <div class="form_group_ar floating_ar">
                         <input type="text" id="contact_name_1" required>
                         <label for="contact_name_1" data-i18n="contact_name">
-                            Contact Name <span class="gl-form-asterisk">*</span>
+                            Contact Name <span class="gl-form-asterisk_ar">*</span>
                         </label>
                     </div>
                     <div class="form_group_ar floating_ar">
                         <input type="email" id="email_ar" required>
-                        <label for="contact_name_1" data-i18n="email">
-                            Email <span class="gl-form-asterisk">*</span>
+                        <label for="email" data-i18n="email">
+                            Email <span class="gl-form-asterisk_ar">*</span>
                         </label>
                     </div>
 
@@ -77,15 +78,15 @@
 
                         <div class="custom-select_ar">
                             <div class="select-display_ar">
-                                <span class="selected-value">Private</span>
-                                <span class="chevron"><i class="fa-solid fa-sort-down"></i></span>
+                                <span class="selected-value_ar">Private</span>
+                                <span class="chevron_ar"><i class="fa-solid fa-sort-down"></i></span>
                             </div>
 
                             <div class="dropdown_ar">
-                                <input type="text" placeholder="Search..." class="search-input">
+                                <input type="text" placeholder="Search..." class="search-input_ar">
 
                                 <ul class="options_ar">
-                                    <li class="active" value="Private">Private</li>
+                                    <li class="active_ar" value="Private">Private</li>
                                     <li value="Public">Public</li>
                                     <li value="Traders">Traders</li>
                                     <li value="Declarant">Declarant</li>
@@ -97,7 +98,7 @@
                     <div class="form_group_ar floating_ar">
                         <input type="text" id="subject_ar" required>
                         <label for="subject_ar" data-i18n="subject">
-                            Subject <span class="gl-form-asterisk">*</span>
+                            Subject <span class="gl-form-asterisk_ar">*</span>
                         </label>
                     </div>
                     <div class="form_group_ar floating_ar">
@@ -113,15 +114,15 @@
 
                         <div class="custom-select_ar">
                             <div class="select-display_ar">
-                                <span class="selected-value">Steakholder Registration</span>
-                                <span class="chevron"><i class="fa-solid fa-sort-down"></i></span>
+                                <span class="selected-value_ar">Steakholder Registration</span>
+                                <span class="chevron_ar"><i class="fa-solid fa-sort-down"></i></span>
                             </div>
 
                             <div class="dropdown_ar">
-                                <input type="text" placeholder="Search..." class="search-input">
+                                <input type="text" placeholder="Search..." class="search-input_ar">
 
                                 <ul class="options_ar">
-                                    <li class="active" value="Steakholder Registration">Steakholder Registration</li>
+                                    <li class="active_ar" value="Steakholder Registration">Steakholder Registration</li>
                                     <li value="Trade">Trade Portal</li>
                                     <li value="Tariff or AI Tariff">Tariff or AI Tariff</li>
                                     <li value="CLP">CLP</li>
@@ -131,22 +132,22 @@
                     </div>
                     <div class="form_group_ar">
                         <label class="field_label_ar">
-                            <span data-i18n="agency_type"> Agency Type</span>
+                            <span data-i18n="agency_type">Agency Type</span>
                             <span class="info-tooltip_ar" data-tooltip="This is your tooltip text"> i</span>
 
                         </label>
 
                         <div class="custom-select_ar">
                             <div class="select-display_ar">
-                                <span class="selected-value">DOE : Department Of Environment</span>
-                                <span class="chevron"><i class="fa-solid fa-sort-down"></i></span>
+                                <span class="selected-value_ar">DOE : Department Of Environment</span>
+                                <span class="chevron_ar"><i class="fa-solid fa-sort-down"></i></span>
                             </div>
 
                             <div class="dropdown_ar">
-                                <input type="text" placeholder="Search..." class="search-input">
+                                <input type="text" placeholder="Search..." class="search-input_ar">
 
                                 <ul class="options_ar">
-                                    <li class="active" value="DOE : Department Of Environment">DOE : Department Of
+                                    <li class="active_ar" value="DOE : Department Of Environment">DOE : Department Of
                                         Environment</li>
                                     <li value="DOE : Department Of Environment">DOE : Department Of Environment</li>
                                     <li value="DOF : Department Of Fisheries">DOF : Department Of Fisheries</li>
@@ -166,10 +167,10 @@
                                 <div class="multi-tags_ar">
                                     <span class="multi-placeholder_ar">Select type of CLP</span>
                                 </div>
-                                <span class="chevron"><i class="fa-solid fa-sort-down"></i>
+                                <span class="chevron_ar"><i class="fa-solid fa-sort-down"></i>
                             </div>
                             <div class="multi-dropdown_ar">
-                                <input type="text" class="multi-search" placeholder="Search..." />
+                                <input type="text" class="multi-search_ar" placeholder="Search..." />
 
                                 <ul class="multi-options_ar">
                                     <li data-value="4601">4601 DoE Clearance Certificate for Import of Hazardous
@@ -191,33 +192,34 @@
 
                             <div class="custom-select_ar">
                                 <div class="select-display_ar">
-                                    <span class="selected-value">Activation Email</span>
-                                    <span class="chevron"><i class="fa-solid fa-sort-down"></i></span>
+                                    <span class="selected-value_ar">Activation Email</span>
+                                    <span class="chevron_ar"><i class="fa-solid fa-sort-down"></i></span>
                                 </div>
 
                                 <div class="dropdown_ar">
-                                    <input type="text" placeholder="Search..." class="search-input">
+                                    <input type="text" placeholder="Search..." class="search-input_ar">
 
                                     <ul class="options_ar">
-                                        <li class="active" value="Activation Email">Activation Email</li>
+                                        <li class="active_ar" value="Activation Email">Activation Email</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="form_group_ar floating_ar" style="margin-top: 30px;">
-                            <div class="captcha-box">
-                                <canvas id="captchaCanvas" width="130" height="50"></canvas>
-                                <button type="button" id="refreshCaptcha">↻</button>
+                        <div class="form_group_ar form_group_unique_input_ar" style="margin-top: 30px;">
+                            <div class="captcha-box_ar">
+                                <canvas id="captchaCanvas_ar" width="130" height="50"></canvas>
+                                <button type="button" id="refreshCaptcha_ar">↻</button>
                             </div>
-                            <input placeholder="Please verify to proceed" type="text" id="verify_ar" required>
+                            <label class="field_label_ar" data-i18n="verify_proceed"  for="">Verify To Proceed</label>
+                            <input  type="text" id="verify_ar" required>
                             <!-- <label for="contact_name_1" data-i18n="verify_proceed">
-                                Please verify to proceed <span class="gl-form-asterisk">*</span>
+                                Please verify to proceed <span class="gl-form-asterisk_ar">*</span>
                             </label> -->
 
-                            <span id="captchaMsg"></span>
+                            <span id="captchaMsg_ar"></span>
                         </div>
                         <!-- optional hidden input -->
-                        <input type="hidden" name="clp_types" id="clpValues">
+                        <input type="hidden" name="clp_types" id="clpValues_ar">
                     </div>
 
 
@@ -227,13 +229,13 @@
             </div>
 
             <!-- CHAT TAB -->
-            <div class="tab_content_ar" id="tab-chat">
+            <div class="tab_content_ar" id="tab-chat_ar">
                 <div id="phone_number_log_ar" class="phone_number_log_ar">
                     <div class="phone_number_log_ar_container">
                         <h3 data-i18n="start_with_phone">Start With Phone Number</h3>
                         <input type="text">
                         <button id="phone_number_log_ar_submit" data-i18n="submit" onclick="toggleNumberAr()"
-                            class="submit">Submit</button>
+                            class="submit_ar">Submit</button>
                     </div>
                 </div>
                 <!-- FAQ CHAT -->
@@ -251,12 +253,12 @@
                                 <button class="faq-btn_ar">About BSW</button>
                                 <button class="faq-btn_ar">User Registration</button>
                                 <button class="faq-btn_ar">Licenses and Institutions</button>
-                                <button class="faq-btn_ar active">General inquiries</button>
-                                <button class="faq-btn_ar whatsapp">
-                                    Message us on WhatsApp
+                                <button class="faq-btn_ar active_ar">General inquiries</button>
+                                <button class="faq-btn_ar whatsapp_ar">
+                                    Message us on whatsapp
                                 </button>
                                 <div>
-                                    <span class="chat-time">11:11 AM</span>
+                                    <span class="chat-time_ar">11:11 AM</span>
                                 </div>
                             </div>
 
@@ -267,7 +269,25 @@
 
                     <div class="user-reply_ar">
                         General inquiries
-                        <span class="reply-time">03:56 PM</span>
+                        <span class="reply-time_ar">03:56 PM</span>
+                    </div>
+                     <div class="faq-options_ar">
+                        <div class="chat-row_ar">
+                            <div class="bot-icon_ar">🤖</div>
+
+
+                            <div class="faq-img_ar">
+                                <p class="faq-title_ar">
+                                   Image :
+                                </p>
+                                  <img class="faq_chat_img_ar" src="spider.jpg" alt="">
+                                <div>
+                                    <span class="chat-time_ar">11:11 AM</span>
+                                </div>
+                            </div>
+
+                        </div>
+
                     </div>
 
 
@@ -280,10 +300,10 @@
                     <div class="leave_message_ar">
                         <div class="leave_header_ar">
                             <button class="back_btn_ar">
-                                <button id="end_chat" class="end_button_ar"><i class="fa-solid fa-angles-left"></i></button>
+                                <button id="end_chat_ar" class="end_button_ar"><i class="fa-solid fa-angles-left"></i></button>
                             </button>
 
-                            <div class="brand_circle">
+                            <div class="brand_circle_ar">
                                 <span>BSW Desk</span>
                             </div>
 
@@ -293,26 +313,26 @@
                     <div class="live_messages_ar">
                         <div class="agent_msg_ar">
                             <span class="agentname_ar">Operator</span>
-                            <div class="chat_message_ar bot">
+                            <div class="chat_message_ar bot_ar">
                                 vfjjdhhdh
                             </div>
                             <img src="spider.jpg" class="image_text_ar" id="image_text_ar" alt="">
-                            <span class="reply_time_live_chat_agent">03:56 PM</span>
+                            <span class="reply_time_live_chat_agent_ar">03:56 PM</span>
                         </div>
                         <div class="user_msg_ar">
                             <span class="username_ar">You</span>
                             <div class="chat_message_ar user">I need help with my account</div>
-                            <span class="reply_time_live_chat_user">03:56 PM</span>
+                            <span class="reply_time_live_chat_user_ar">03:56 PM</span>
                         </div>
                         <div class="agent_msg_ar">
                            <span class="agentname_ar">Operator</span>
-                            <div class="chat_message_ar bot">Hello 👋 I’m an agent. How can I help?</div>
-                            <span class="reply_time_live_chat_agent">03:56 PM</span>
+                            <div class="chat_message_ar bot_ar">Hello 👋 I’m an agent. How can I help?</div>
+                            <span class="reply_time_live_chat_agent_ar">03:56 PM</span>
                         </div>
                         <div class="user_msg_ar">
                             <span class="username_ar">You</span>
                             <div class="chat_message_ar user">I need help with my account</div>
-                            <span class="reply_time_live_chat_user">03:56 PM</span>
+                            <span class="reply_time_live_chat_user_ar">03:56 PM</span>
                         </div>
 
                     </div>
@@ -324,9 +344,9 @@
 
 
             <!-- KNOWLEDGE BASE TAB -->
-            <div class="tab_content_ar" id="tab-product">
+            <div class="tab_content_ar" id="tab-product_ar">
                <div class="carousel_wrapper_ar">
-    <button class="nav_ar prev_ar" id="prevBtn"><i class="fa-solid fa-angle-left"></i></button>
+    <button class="nav_ar prev_ar" id="prevBtn_ar"><i class="fa-solid fa-angle-left"></i></button>
 
     <div class="carousel_container_ar">
         <ul class="carousel_ar" id="carousel_ar">
@@ -369,12 +389,12 @@
         </ul>
     </div>
 
-    <button class="nav_ar next_ar" id="nextBtn"><i class="fa-solid fa-angle-right"></i></button>
+    <button class="nav_ar next_ar" id="nextBtn_ar"><i class="fa-solid fa-angle-right"></i></button>
 </div>
 
             </div>
-            <div class="tab_content_ar" id="tab-kb">
-                <div class="kb_item">
+            <div class="tab_content_ar" id="tab-kb_ar">
+                <div class="kb_item_ar">
                     <h5>How to create a ticket?</h5>
                     <div>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque blanditiis soluta quidem. Numquam, totam rem?
@@ -382,51 +402,46 @@
                     </div>
                 </div>
 
-                <div class="kb_item">
+                <div class="kb_item_ar">
                     <h5>How to reset password?</h5>
                        <div>
                     <p class="sty_k13su9cls">The Certificate, License, Permit (CLP) is a framework commonly used in trade and regulatory environments to manage the necessary authorizations and documents required for various business activities. In the context of the Bangladesh Single Window (BSW), the CLP framework refers to the collection of certificates, licenses, and permits that traders and businesses need to obtain for the import, export, and transit of goods.</p><h3 class="stykl01bkcls">Key Components of CLP</h3>
                     <div>
                         <h3>testtt</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea magnam iste incidunt dignissimos atque esse itaque assumenda tempora libero autem quidem eos, deleniti illum facere sed ut porro? Illum, voluptatem!</p>
-                    </div>
-                    <div>
-                        <h5>testtt</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea magnam iste incidunt dignissimos atque esse itaque assumenda tempora libero autem quidem eos, deleniti illum facere sed ut porro? Illum, voluptatem!</p>
                     </div>
 
                        </div>
                 </div>
 
-                <div class="kb_item">
+                <div class="kb_item_ar">
                     <h5>How to contact support?</h5>
                       <div>h</div>
                 </div>
-                <div class="kb_item">
+                <div class="kb_item_ar">
                     <h5>How to contact support?</h5>
                       <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque blanditiis soluta quidem. Numquam, totam rem?</div>
                 </div>
-                <div class="kb_item">
+                <div class="kb_item_ar">
                     <h5>How to contact support?</h5>
                       <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque blanditiis soluta quidem. Numquam, totam rem?</div>
                 </div>
-                <div class="kb_item">
+                <div class="kb_item_ar">
                     <h5>How to contact support?</h5>
                       <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque blanditiis soluta quidem. Numquam, totam rem?</div>
                 </div>
-                <div class="kb_item">
+                <div class="kb_item_ar">
                     <h5>How to contact support?</h5>
                       <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque blanditiis soluta quidem. Numquam, totam rem?</div>
                 </div>
-                <div class="kb_item">
+                <div class="kb_item_ar">
                     <h5>How to contact support?</h5>
                       <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque blanditiis soluta quidem. Numquam, totam rem?</div>
                 </div>
-                <div class="kb_item">
+                <div class="kb_item_ar">
                     <h5>How to contact support?</h5>
                       <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque blanditiis soluta quidem. Numquam, totam rem?</div>
                 </div>
-                <div class="kb_item">
+                <div class="kb_item_ar">
                     <h5>How to contact support?</h5>
                       <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque blanditiis soluta quidem. Numquam, totam rem?</div>
                 </div>
@@ -440,69 +455,69 @@
             <div class="ticket_footer_container_ar">
                 <!-- <i class="fa-solid fa-paperclip attach_icon_ar"></i> -->
                 <div class="attachment_wrapper_ar">
-                    <i class="fa-solid fa-paperclip attach_icon_ar" id="attachBtn"></i>
-                    <input type="file" id="attachmentInput" multiple style="display:none;">
+                    <i class="fa-solid fa-paperclip attach_icon_ar" id="attachBtn_ar"></i>
+                    <input type="file" id="attachmentInput_ar" multiple style="display:none;">
                     <div class="attachment_list_ar"></div>
                 </div>
 
 
                 <div class="button_wrapper_ar">
-                    <button class="btn_ar reset" data-i18n="reset">Reset</button>
-                    <button class="btn_ar submit" data-i18n="submit">Submit</button>
+                    <button class="btn_ar reset_ar" data-i18n="reset">Reset</button>
+                    <button class="btn_ar submit_ar" data-i18n="submit">Submit</button>
                 </div>
             </div>
-            <p class="watermark" data-i18n="powered_by">Powered by iHelpBD</p>
+            <p class="watermark_ar" data-i18n="powered_by">Powered by iHelpBD</p>
         </div>
         <!-- faq chat footer -->
         <div class="chatbot_footer_ar" id="chat_footer_ar">
             <div class="">
-                <div class="chat_with_agent_ar" id="start_live_chat">
+                <div class="chat_with_agent_ar" id="start_live_chat_ar">
                     <i class="fa-regular fa-comment-dots"></i> <span data-i18n="live_chat_agent">Chat with our agent
                         directly</span>
                 </div>
-                <p class="watermark" data-i18n="powered_by">Powered by iHelpBD</p>
+                <p class="watermark_ar" data-i18n="powered_by">Powered by iHelpBD</p>
             </div>
         </div>
         <!-- live chat footer -->
         <div class="chatbot_footer_ar" id="direct_chat_footer_ar">
-            <div class="chat_with_agent_wrapper">
-                <div class="chat_with_agent_div" id="live_chat_div_ar">
+            <div class="chat_with_agent_wrapper_ar">
+                <div class="chat_with_agent_div_ar" id="live_chat_div_ar">
                     <div class="live_chat_footer_ar">
-                        <textarea class="input_like_textarea" placeholder="Type your message..."></textarea>
+                        <textarea class="input_like_textarea_ar" placeholder="Type your message..."></textarea>
 
                         <button id="submit_live_chat_ar" class="submit_button_ar"><i
                                 class="fa-solid fa-paper-plane"></i></button>
-                        <!-- <button id="end_chat" class="end_button_ar"><i class="fa-solid fa-angles-left"></i></button> -->
+                        <!-- <button id="end_chat_ar" class="end_button_ar"><i class="fa-solid fa-angles-left"></i></button> -->
                     </div>
                 </div>
             </div>
-            <p class="watermark" data-i18n="powered_by">Powered by iHelpBD</p>
+            <p class="watermark_ar" data-i18n="powered_by">Powered by iHelpBD</p>
         </div>
         <!-- Product footer -->
         <div class="chatbot_footer_ar" id="product_footer_ar">
-            <p class="watermark" data-i18n="powered_by">Powered by iHelpBD</p>
+            <p class="watermark_ar" data-i18n="powered_by">Powered by iHelpBD</p>
         </div>
         <!-- knowledge base footer -->
         <div class="chatbot_footer_ar" id="knowledge_footer_ar">
-            <p class="watermark" data-i18n="powered_by">Powered by iHelpBD</p>
+            <p class="watermark_ar" data-i18n="powered_by">Powered by iHelpBD</p>
         </div>
 
 
         <!-- Tabs -->
         <div class="chatbot_tabs_ar">
-            <div class="tab_ar active" data-tab="tickets">
+            <div class="tab_ar active_ar" data-tab="tickets_ar">
                 <i class="fa-solid fa-ticket"></i>
                 <span data-i18n="tickets">Tickets</span>
             </div>
-            <div class="tab_ar" data-tab="chat">
+            <div class="tab_ar" data-tab="chat_ar">
                 <i class="fa-solid fa-comment"></i>
                 <span data-i18n="chat">Chat</span>
             </div>
-            <div class="tab_ar" data-tab="product">
+            <div class="tab_ar" data-tab="product_ar">
                 <i class="fa-brands fa-product-hunt"></i>
                 <span data-i18n="product">Product</span>
             </div>
-            <div class="tab_ar" data-tab="kb">
+            <div class="tab_ar" data-tab="kb_ar">
                 <i class="fa-solid fa-book"></i>
                 <span data-i18n="knowledge">Knowledge</span>
             </div>

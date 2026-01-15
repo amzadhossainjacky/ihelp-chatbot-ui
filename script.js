@@ -1,39 +1,38 @@
 document.addEventListener('DOMContentLoaded', () => {
-const carousel = document.getElementById('carousel_ar');
-const nextBtn = document.getElementById('nextBtn');
-const prevBtn = document.getElementById('prevBtn');
-const cards = document.querySelectorAll('.carousel_ar li');
 
-let currentIndex = 0;
+    const carousel = document.getElementById('carousel_ar');
+    const prevBtn = document.querySelector('.prev_ar');
+    const nextBtn = document.querySelector('.next_ar');
 
-function updateCarousel() {
-    // Moves the UL left/right by 100% of its width per index
-    const offset = -currentIndex * 100;
-    carousel.style.transform = `translateX(${offset}%)`;
-}
+    const totalItems = carousel.children.length;
+    const cardWidth = 350;
+    let index = 0;
 
-nextBtn.addEventListener('click', () => {
-    if (currentIndex < cards.length - 1) {
-        currentIndex++;
-    } else {
-        currentIndex = 0; // Loop back to start
+    function updateCarousel() {
+        carousel.style.transform = `translateX(-${index * cardWidth}px)`;
+
+        prevBtn.classList.toggle('hidden', index === 0);
+        nextBtn.classList.toggle('hidden', index === totalItems - 1);
     }
+
+    nextBtn.addEventListener('click', () => {
+        if (index < totalItems - 1) {
+            index++;
+            updateCarousel();
+        }
+    });
+
+    prevBtn.addEventListener('click', () => {
+        if (index > 0) {
+            index--;
+            updateCarousel();
+        }
+    });
+
     updateCarousel();
-});
 
-prevBtn.addEventListener('click', () => {
-    if (currentIndex > 0) {
-        currentIndex--;
-    } else {
-        currentIndex = cards.length - 1; // Loop to end
-    }
-    updateCarousel();
-});
-
-
-    
-    const attachBtn = document.getElementById('attachBtn');
-    const attachmentInput = document.getElementById('attachmentInput');
+    const attachBtn = document.getElementById('attachBtn_ar');
+    const attachmentInput = document.getElementById('attachmentInput_ar');
     const attachmentList = document.querySelector('.attachment_list_ar');
 
     let attachments = []; // store selected files
@@ -77,9 +76,10 @@ prevBtn.addEventListener('click', () => {
 
     // Optional: get attachments before sending form
     window.getAttachments = () => attachments; // returns array of File objects
-     /* ===============================
-       LANGUAGE DICTIONARY
-    =============================== */
+
+    /* ===============================
+      LANGUAGE DICTIONARY
+   =============================== */
     const translations = {
         en: {
             add_ticket: "Add Ticket",
@@ -103,12 +103,14 @@ prevBtn.addEventListener('click', () => {
             powered_by: "Powered by iHelpBD",
             start_with_phone: "Start With Phone Number",
             live_chat_agent: "Chat with our agent directly",
+            getting_started: "Getting Started",
+            knowledge_base: "Knowledge Base",
         },
 
         bn: {
             add_ticket: "টিকিট যোগ করুন",
             tickets: "টিকিট",
-              issue_category: "সমস্যার ধরন ",
+            issue_category: "সমস্যার ধরন ",
             chat: "চ্যাট",
             subject: "বিষয়",
             product: "প্রোডাক্ট",
@@ -127,8 +129,41 @@ prevBtn.addEventListener('click', () => {
             powered_by: "iHelpBD দ্বারা চালিত",
             start_with_phone: "ফোন নম্বর দিয়ে শুরু করুন",
             live_chat_agent: "সরাসরি আমাদের এজেন্টের সাথে চ্যাট করুন",
+            getting_started: "শুরু করুন",
+            knowledge_base: "জ্ঞানভাণ্ডার",
         }
     };
+
+    /* ===============================
+       UPDATE HEADER TITLE BASED ON ACTIVE TAB & LANGUAGE
+    =============================== */
+    function updateHeaderTitle() {
+        const lang = localStorage.getItem("chatbot_lang") || "en";
+        const activeTab = document.querySelector('.tab_ar.active_ar');
+        const headerTitle = document.getElementById('header_title_ar');
+        
+        if (!activeTab || !headerTitle) return;
+        
+        const target = activeTab.dataset.tab;
+        
+        switch (target) {
+            case 'tickets_ar':
+                headerTitle.innerText = translations[lang].add_ticket;
+                break;
+                
+            case 'chat_ar':
+                headerTitle.innerText = translations[lang].getting_started;
+                break;
+                
+            case 'product_ar':
+                headerTitle.innerText = translations[lang].product;
+                break;
+                
+            case 'kb_ar':
+                headerTitle.innerText = translations[lang].knowledge_base;
+                break;
+        }
+    }
 
     /* ===============================
        LANGUAGE SWITCH FUNCTION
@@ -149,20 +184,23 @@ prevBtn.addEventListener('click', () => {
             `<i class="fa-solid fa-globe"></i> ${lang === "en" ? "English" : "বাংলা"} <i class="fa-solid fa-caret-down"></i>`;
 
         // Update active language UI
-        document.querySelectorAll(".language_list li")
-            .forEach(li => li.classList.remove("active"));
+        document.querySelectorAll(".language_list_ar li")
+            .forEach(li => li.classList.remove("active_ar"));
 
-        document.querySelector(`.language_list a[data-lang="${lang}"]`)
-            ?.parentElement.classList.add("active");
+        document.querySelector(`.language_list_ar a[data-lang="${lang}"]`)
+            ?.parentElement.classList.add("active_ar");
 
         // Save preference
         localStorage.setItem("chatbot_lang", lang);
+        
+        // Update header title for current active tab
+        updateHeaderTitle();
     }
 
     /* ===============================
        LANGUAGE CLICK EVENTS
     =============================== */
-    document.querySelectorAll(".language_list a").forEach(link => {
+    document.querySelectorAll(".language_list_ar a").forEach(link => {
         link.addEventListener("click", e => {
             e.preventDefault();
             const lang = link.dataset.lang;
@@ -216,7 +254,7 @@ prevBtn.addEventListener('click', () => {
     const liveChat = document.getElementById('live_chat_ar');
     const phone_number_log_ar = document.getElementById('phone_number_log_ar');
 
-    const loader = document.getElementById('tab_loader');
+    const loader = document.getElementById('tab_loader_ar');
 
     /* ===== TAB HISTORY FOR BACK BUTTON ===== */
     let tabHistory = [];
@@ -229,84 +267,82 @@ prevBtn.addEventListener('click', () => {
             callback();
         }, 1000);
     }
-
+  
     /* ===== Activate Tab ===== */
     function activateTab(tab) {
-        const target = tab.dataset.tab;
+        const target = tab.dataset.tab; // tickets_ar, chat_ar, etc
+        const lang = localStorage.getItem("chatbot_lang") || "en";
 
-        // Push current tab to history
-        const currentActive = document.querySelector('.tab_ar.active');
+        const currentActive = document.querySelector('.tab_ar.active_ar');
         if (currentActive && currentActive.dataset.tab !== target) {
             tabHistory.push(currentActive.dataset.tab);
-            if (tabHistory.length > 10) tabHistory.shift(); // keep max 10
+            if (tabHistory.length > 10) tabHistory.shift();
         }
 
         showLoader(() => {
 
-            tabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
+            tabs.forEach(t => t.classList.remove('active_ar'));
+            tab.classList.add('active_ar');
 
-            contents.forEach(c => {
-                c.classList.remove('active', 'fade-in');
-            });
+            contents.forEach(c => c.classList.remove('active_ar', 'fade-in'));
 
             const activeContent = document.getElementById(`tab-${target}`);
             if (activeContent) {
-                activeContent.classList.add('active', 'fade-in');
+                activeContent.classList.add('active_ar', 'fade-in');
             }
 
             switch (target) {
-                case 'tickets':
-                    headerTitle.innerText = translations[savedLang].add_ticket;
+
+                case 'tickets_ar':
+                    headerTitle.innerText = translations[lang].add_ticket;
                     ticket_footer_ar.style.display = 'block';
-                    phone_number_log_ar.style.display = 'none';
                     chat_footer.style.display = 'none';
                     product_footer.style.display = 'none';
                     knowledge_footer.style.display = 'none';
                     direct_chat_footer.style.display = 'none';
+                    phone_number_log_ar.style.display = 'none';
+                    liveChat.style.display = 'none';
                     break;
 
-                case 'chat':
-                    headerTitle.innerText = 'Getting Started';
-          
-                    liveChat.style.display = 'none';
+                case 'chat_ar':
+                    headerTitle.innerText = translations[lang].getting_started;
                     ticket_footer_ar.style.display = 'none';
                     product_footer.style.display = 'none';
                     knowledge_footer.style.display = 'none';
                     direct_chat_footer.style.display = 'none';
+                    liveChat.style.display = 'none';
                     if (isPhoneStep) {
-                        // PHONE STEP
                         phone_number_log_ar.style.display = 'flex';
                         faqChat.style.display = 'none';
                         chat_footer.style.display = 'none';
                     } else {
-                        // FAQ STEP
                         phone_number_log_ar.style.display = 'none';
                         faqChat.style.display = 'block';
                         chat_footer.style.display = 'block';
                     }
                     break;
-                case 'product':
-                    headerTitle.innerText = 'Product';
-                    // headerTitle.innerText = translations[savedLang].chat;
-                    phone_number_log_ar.style.display = 'none';
-                    faqChat.style.display = 'none';
-                    liveChat.style.display = 'none';
+
+                case 'product_ar':
+                    headerTitle.innerText = translations[lang].product;
                     ticket_footer_ar.style.display = 'none';
                     chat_footer.style.display = 'none';
                     product_footer.style.display = 'block';
                     knowledge_footer.style.display = 'none';
                     direct_chat_footer.style.display = 'none';
+                    phone_number_log_ar.style.display = 'none';
+                    faqChat.style.display = 'none';
+                    liveChat.style.display = 'none';
                     break;
 
-                case 'kb':
-                    headerTitle.innerText = 'Knowledge Base';
-                    phone_number_log_ar.style.display = 'none';
+                case 'kb_ar':
+                    headerTitle.innerText = translations[lang].knowledge_base;
                     ticket_footer_ar.style.display = 'none';
                     chat_footer.style.display = 'none';
+                    product_footer.style.display = 'none';
                     knowledge_footer.style.display = 'block';
                     direct_chat_footer.style.display = 'none';
-                    product_footer.style.display = 'none';
+                    phone_number_log_ar.style.display = 'none';
+                    liveChat.style.display = 'none';
                     break;
             }
         });
@@ -317,22 +353,25 @@ prevBtn.addEventListener('click', () => {
     });
 
     /* ===== Default Tab ===== */
-    const defaultTab = document.querySelector('.tab_ar[data-tab="tickets"]');
+    const defaultTab = document.querySelector('.tab_ar[data-tab="tickets_ar"]');
     if (defaultTab) activateTab(defaultTab);
 
     /* ===== Back Button Functionality ===== */
-    const backBtn = document.getElementById('tab_back_btn_ar'); // your <i> back arrow
+    const backBtn = document.getElementById('tab_back_btn_ar');
+
     if (backBtn) {
         backBtn.addEventListener('click', () => {
-            if (tabHistory.length === 0) return;
-            const previousTab = tabHistory.pop();
-            const tabElement = document.querySelector(`.tab_ar[data-tab="${previousTab}"]`);
-            if (tabElement) activateTab(tabElement);
+            if (!tabHistory.length) return;
+
+            const prev = tabHistory.pop();
+            const tabEl = document.querySelector(`.tab_ar[data-tab="${prev}"]`);
+            if (tabEl) activateTab(tabEl);
         });
     }
+
     /* ===== Start / End Live Chat ===== */
-    const startChat = document.getElementById('start_live_chat');
-    const endChat = document.getElementById('end_chat');
+    const startChat = document.getElementById('start_live_chat_ar');
+    const endChat = document.getElementById('end_chat_ar');
 
     if (startChat) {
         startChat.addEventListener('click', () => {
@@ -359,26 +398,27 @@ prevBtn.addEventListener('click', () => {
                 faqChat.style.display = 'block';
                 faqChat.classList.add('fade-in');
 
-                headerTitle.innerText = 'Chat';
+                const lang = localStorage.getItem("chatbot_lang") || "en";
+                headerTitle.innerText = translations[lang].chat;
                 chat_footer.style.display = 'block';
                 direct_chat_footer.style.display = 'none';
             }, 250);
         });
     }
 
-    const kbItems = document.querySelectorAll('.kb_item');
+    const kbItems = document.querySelectorAll('.kb_item_ar');
 
     kbItems.forEach(item => {
         const question = item.querySelector('h5');
 
         question.addEventListener('click', () => {
             // Toggle this item
-            item.classList.toggle('active');
+            item.classList.toggle('active_ar');
 
             // Optional: close other items (accordion behavior)
             kbItems.forEach(otherItem => {
                 if (otherItem !== item) {
-                    otherItem.classList.remove('active');
+                    otherItem.classList.remove('active_ar');
                 }
             });
         });
@@ -386,7 +426,7 @@ prevBtn.addEventListener('click', () => {
 
     // Get the elements
     const trigger = document.getElementById('dropdownTrigger_ar');
-    const menu = document.getElementById('dropdownMenu');
+    const menu = document.getElementById('dropdownMenu_ar');
 
     // Toggle menu on click
     trigger.addEventListener('click', function (event) {
@@ -401,15 +441,16 @@ prevBtn.addEventListener('click', () => {
             menu.classList.remove('show');
         }
     });
+
     /* ===== Multi Select (CLP) – Hide Selected Options ===== */
     document.querySelectorAll('.multi-select_ar').forEach(select => {
 
         const display = select.querySelector('.multi-display_ar');
         const dropdown = select.querySelector('.multi-dropdown_ar');
-        const search = select.querySelector('.multi-search');
+        const search = select.querySelector('.multi-search_ar');
         const options = select.querySelectorAll('.multi-options_ar li');
         const tagsBox = select.querySelector('.multi-tags_ar');
-        const hiddenInp = document.getElementById('clpValues');
+        const hiddenInp = document.getElementById('clpValues_ar');
 
         let values = [];
 
@@ -499,92 +540,93 @@ prevBtn.addEventListener('click', () => {
             d.style.display = 'none';
         });
     });
-let captchaText = '';
 
-function generateCaptcha() {
-    const canvas = document.getElementById('captchaCanvas');
-    const ctx = canvas.getContext('2d');
+    let captchaText = '';
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    function generateCaptcha() {
+        const canvas = document.getElementById('captchaCanvas_ar');
+        const ctx = canvas.getContext('2d');
 
-    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789@#$%';
-    captchaText = '';
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    for (let i = 0; i < 6; i++) {
-        captchaText += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
+        const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789@#$%';
+        captchaText = '';
 
-    // Background
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.font = 'italic 26px Georgia';
-    ctx.textBaseline = 'middle';
-
-    for (let i = 0; i < captchaText.length; i++) {
-        ctx.save();
-
-        const x = 15 + i * 18;
-        const y = canvas.height / 2 + random(-6, 6);
-        const angle = random(-0.5, 0.5);
-
-        ctx.translate(x, y);
-        ctx.rotate(angle);
-
-        ctx.shadowColor = 'rgba(0,0,0,0.4)';
-        ctx.shadowBlur = 4;
-        ctx.shadowOffsetX = 2;
-        ctx.shadowOffsetY = 2;
-
-        ctx.lineWidth = 1;
-        ctx.strokeStyle = '#333';
-        ctx.strokeText(captchaText[i], 0, 0);
-
-        ctx.fillStyle = '#000';
-        ctx.fillText(captchaText[i], 0, 0);
-
-        ctx.restore();
-    }
-
-    // Noise curve
-    ctx.strokeStyle = '#999';
-    ctx.beginPath();
-    ctx.moveTo(0, random(10, 40));
-    ctx.bezierCurveTo(30, random(0, 50), 80, random(0, 50), canvas.width, random(10, 40));
-    ctx.stroke();
-
-    // Reset message & input on refresh
-    document.getElementById('verify_ar').value = '';
-    document.getElementById('captchaMsg').textContent = '';
-}
-
-function random(min, max) {
-    return Math.random() * (max - min) + min;
-}
-
-/* ✅ VALIDATION */
-document.getElementById('verify_ar').addEventListener('input', function () {
-    const msg = document.getElementById('captchaMsg');
-
-    if (this.value.length === captchaText.length) {
-        if (this.value === captchaText) {
-            msg.textContent = '✔ CAPTCHA matched';
-            msg.style.color = 'green';
-        } else {
-            msg.textContent = '✖ CAPTCHA not matched';
-            msg.style.color = 'red';
+        for (let i = 0; i < 6; i++) {
+            captchaText += chars.charAt(Math.floor(Math.random() * chars.length));
         }
-    } else {
-        msg.textContent = '';
+
+        // Background
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.font = 'italic 26px Georgia';
+        ctx.textBaseline = 'middle';
+
+        for (let i = 0; i < captchaText.length; i++) {
+            ctx.save();
+
+            const x = 15 + i * 18;
+            const y = canvas.height / 2 + random(-6, 6);
+            const angle = random(-0.5, 0.5);
+
+            ctx.translate(x, y);
+            ctx.rotate(angle);
+
+            ctx.shadowColor = 'rgba(0,0,0,0.4)';
+            ctx.shadowBlur = 4;
+            ctx.shadowOffsetX = 2;
+            ctx.shadowOffsetY = 2;
+
+            ctx.lineWidth = 1;
+            ctx.strokeStyle = '#333';
+            ctx.strokeText(captchaText[i], 0, 0);
+
+            ctx.fillStyle = '#000';
+            ctx.fillText(captchaText[i], 0, 0);
+
+            ctx.restore();
+        }
+
+        // Noise curve
+        ctx.strokeStyle = '#999';
+        ctx.beginPath();
+        ctx.moveTo(0, random(10, 40));
+        ctx.bezierCurveTo(30, random(0, 50), 80, random(0, 50), canvas.width, random(10, 40));
+        ctx.stroke();
+
+        // Reset message & input on refresh
+        document.getElementById('verify_ar').value = '';
+        document.getElementById('captchaMsg_ar').textContent = '';
     }
-});
 
-/* Refresh */
-document.getElementById('captchaCanvas').addEventListener('click', generateCaptcha);
-document.getElementById('refreshCaptcha').addEventListener('click', generateCaptcha);
+    function random(min, max) {
+        return Math.random() * (max - min) + min;
+    }
 
-/* Load */
-generateCaptcha();
+    /*  VALIDATION */
+    document.getElementById('verify_ar').addEventListener('input', function () {
+        const msg = document.getElementById('captchaMsg_ar');
+
+        if (this.value.length === captchaText.length) {
+            if (this.value === captchaText) {
+                msg.textContent = '✔ CAPTCHA matched';
+                msg.style.color = 'green';
+            } else {
+                msg.textContent = '✖ CAPTCHA not matched';
+                msg.style.color = 'red';
+            }
+        } else {
+            msg.textContent = '';
+        }
+    });
+
+    /* Refresh */
+    document.getElementById('captchaCanvas_ar').addEventListener('click', generateCaptcha);
+    document.getElementById('refreshCaptcha_ar').addEventListener('click', generateCaptcha);
+
+    /* Load */
+    generateCaptcha();
 });
 
 /* ===== Custom Select ===== */
@@ -592,9 +634,9 @@ document.querySelectorAll('.custom-select_ar').forEach(select => {
 
     const display = select.querySelector('.select-display_ar');
     const dropdown = select.querySelector('.dropdown_ar');
-    const search = select.querySelector('.search-input');
+    const search = select.querySelector('.search-input_ar');
     const options = select.querySelectorAll('.options_ar li');
-    const selectedValue = select.querySelector('.selected-value');
+    const selectedValue = select.querySelector('.selected-value_ar');
 
     display.addEventListener('click', e => {
         e.stopPropagation();
@@ -612,8 +654,8 @@ document.querySelectorAll('.custom-select_ar').forEach(select => {
     options.forEach(option => {
         option.addEventListener('click', () => {
             selectedValue.textContent = option.textContent;
-            options.forEach(o => o.classList.remove('active'));
-            option.classList.add('active');
+            options.forEach(o => o.classList.remove('active_ar'));
+            option.classList.add('active_ar');
             dropdown.style.display = 'none';
         });
     });
@@ -630,18 +672,27 @@ document.querySelectorAll('.custom-select_ar').forEach(select => {
         });
     }
 });
+
 function toggleNumberAr() {
     const faqChat = document.getElementById('faq_chat_ar');
     const phone_number_log_ar = document.getElementById('phone_number_log_ar');
     const chat_footer = document.getElementById('chat_footer_ar');
-     const headerTitle = document.getElementById('header_title_ar');
- headerTitle.innerText = 'Chat';
+    const headerTitle = document.getElementById('header_title_ar');
+    const lang = localStorage.getItem("chatbot_lang") || "en";
+    
+    const translations = {
+        en: { chat: "Chat" },
+        bn: { chat: "চ্যাট" }
+    };
+    
+    headerTitle.innerText = translations[lang].chat;
     phone_number_log_ar.style.display = 'none';
     faqChat.style.display = 'block';
     chat_footer.style.display = 'block';
 
     isPhoneStep = false;
 }
+
 /* ===== Outside click close ===== */
 document.addEventListener('click', () => {
     document.querySelectorAll('.dropdown_ar').forEach(d => d.style.display = 'none');
