@@ -60,30 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Clear input for next selection
     attachmentInput.value = "";
-
-    //Tooltip functionality
-    const tooltip = document.createElement("div");
-    tooltip.className = "global_tooltip_ar";
-    document.body.appendChild(tooltip);
-
-    document.addEventListener("mouseover", (e) => {
-      const target = e.target.closest(".info_tooltip_ar");
-      if (!target) return;
-
-      tooltip.textContent = target.dataset.tooltip;
-      const rect = target.getBoundingClientRect();
-
-      tooltip.style.left = rect.left + rect.width / 2 + "px";
-      tooltip.style.top = rect.top - 8 + "px";
-      tooltip.style.transform = "translate(-50%, -100%)";
-      tooltip.style.opacity = "1";
-    });
-
-    document.addEventListener("mouseout", (e) => {
-      if (e.target.closest(".info_tooltip_ar")) {
-        tooltip.style.opacity = "0";
-      }
-    });
   });
 
   // Render attachment tag
@@ -102,6 +78,30 @@ document.addEventListener("DOMContentLoaded", () => {
     tag.appendChild(removeBtn);
     attachmentList.appendChild(tag);
   }
+
+  //Tooltip functionality
+  const tooltip = document.createElement("div");
+  tooltip.className = "global_tooltip_ar";
+  document.body.appendChild(tooltip);
+
+  document.addEventListener("mouseover", (e) => {
+    const target = e.target.closest(".info_tooltip_ar");
+    if (!target) return;
+
+    tooltip.textContent = target.dataset.tooltip;
+    const rect = target.getBoundingClientRect();
+
+    tooltip.style.left = rect.left + rect.width / 2 + "px";
+    tooltip.style.top = rect.top - 8 + "px";
+    tooltip.style.transform = "translate(-50%, -100%)";
+    tooltip.style.opacity = "1";
+  });
+
+  document.addEventListener("mouseout", (e) => {
+    if (e.target.closest(".info_tooltip_ar")) {
+      tooltip.style.opacity = "0";
+    }
+  });
 
   // Optional: get attachments before sending form
   window.getAttachments = () => attachments; // returns array of File objects

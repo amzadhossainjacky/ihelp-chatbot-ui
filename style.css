@@ -1302,7 +1302,7 @@ textarea {
 }
 
 /* Tooltip arrow */
-.info_tooltip_ar::before {
+/* .info_tooltip_ar::before {
   content: "";
   position: absolute;
   bottom: 125%;
@@ -1313,14 +1313,14 @@ textarea {
   border-color: #212529 transparent transparent transparent;
   opacity: 0;
   transition: opacity 0.25s ease;
-}
+} */
 
 /* Hover effect */
-.info_tooltip_ar:hover::after,
+/* .info_tooltip_ar:hover::after,
 .info_tooltip_ar:hover::before {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
-}
+} */
 
 .captcha_box_ar {
   display: flex;
