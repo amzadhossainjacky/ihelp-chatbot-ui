@@ -65,6 +65,7 @@
   font-size: 20px;
   text-align: center;
   color: #1296f0;
+  word-wrap: break-word;
   /* border-bottom: 1px solid #0ea5e9; */
 }
 
@@ -1258,7 +1259,7 @@ textarea {
 }
 
 /* Tooltip box */
-.info_tooltip_ar::after {
+/* .info_tooltip_ar::after {
   content: attr(data-tooltip);
   position: absolute;
   bottom: 140%;
@@ -1274,6 +1275,30 @@ textarea {
   pointer-events: none;
   transition: all 0.25s ease;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  -webkit-transform: translateX(-50%) translateY(6px);
+  -moz-transform: translateX(-50%) translateY(6px);
+  -ms-transform: translateX(-50%) translateY(6px);
+  -o-transform: translateX(-50%) translateY(6px);
+   box-sizing: border-box;
+} */
+
+
+/* Tooltip box */
+.global_tooltip_ar {
+  position: fixed;
+  background: #212529;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  max-width: 260px;
+  white-space: normal;
+  word-break: break-word;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  z-index: 2147483647;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .2s ease, transform .2s ease;
 }
 
 /* Tooltip arrow */
