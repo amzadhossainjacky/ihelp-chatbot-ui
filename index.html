@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,8 +57,8 @@
                 <h4 class="ticket_form_heading_ar" data-i18n="case_information">Case Information</h4>
                 <div class="ticket_form_ar">
                     <div class="form_group_ar floating_ar">
-                        <input type="text" id="contact_name_1" required>
-                        <label for="contact_name_1" data-i18n="contact_name">
+                        <input type="text" id="contact_name_ar" required>
+                        <label for="contact_name_ar" data-i18n="contact_name">
                             Contact Name <span class="gl_form_asterisk_ar">*</span>
                         </label>
                     </div>
@@ -162,7 +162,7 @@
 
                         </label>
 
-                        <div class="multi_select_ar" id="clpSelect">
+                        <div class="multi_select_ar" id="clpSelect_ar">
                             <div class="multi_display_ar">
                                 <div class="multi_tags_ar">
                                     <span class="multi_placeholder_ar">Select type of CLP</span>
@@ -210,8 +210,8 @@
                                 <canvas id="captchaCanvas_ar" width="130" height="50"></canvas>
                                 <button type="button" id="refreshCaptcha_ar">↻</button>
                             </div>
-                            <label class="field_label_ar" data-i18n="verify_proceed"  for="">Verify To Proceed</label>
-                            <input  type="text" id="verify_ar" required>
+                            <label class="field_label_ar" data-i18n="verify_proceed" for="">Verify To Proceed</label>
+                            <input type="text" id="verify_ar" required>
                             <!-- <label for="contact_name_1" data-i18n="verify_proceed">
                                 Please verify to proceed <span class="gl_form_asterisk_ar">*</span>
                             </label> -->
@@ -231,10 +231,10 @@
             <!-- CHAT TAB -->
             <div class="tab_content_ar" id="tab_chat_ar">
                 <div id="phone_number_log_ar" class="phone_number_log_ar">
-                    <div class="phone_number_log_ar_container">
+                    <div class="phone_number_log_container_ar">
                         <h3 data-i18n="start_with_phone">Start With Phone Number</h3>
                         <input type="text">
-                        <button id="phone_number_log_ar_submit" data-i18n="submit" onclick="toggleNumberAr()"
+                        <button id="phone_number_log_submit_ar" data-i18n="submit" onclick="toggleNumberAr()"
                             class="submit_ar">Submit</button>
                     </div>
                 </div>
@@ -271,16 +271,16 @@
                         General inquiries
                         <span class="reply_time_ar">03:56 PM</span>
                     </div>
-                     <div class="faq_options_ar">
+                    <div class="faq_options_ar">
                         <div class="chat_row_ar">
                             <div class="bot_icon_ar">🤖</div>
 
 
                             <div class="faq_img_ar">
                                 <p class="faq_title_ar">
-                                   Image : 
+                                    Image :
                                 </p>
-                                  <img class="faq_chat_img_ar" src="spider.jpg" alt="">
+                                <img class="faq_chat_img_ar" src="spider.jpg" alt="">
                                 <div>
                                     <span class="chat_time_ar">11:11 AM</span>
                                 </div>
@@ -300,7 +300,8 @@
                     <div class="leave_message_ar">
                         <div class="leave_header_ar">
                             <button class="back_btn_ar">
-                                <button id="end_chat_ar" class="end_button_ar"><i class="fa-solid fa-angles-left"></i></button>
+                                <button id="end_chat_ar" class="end_button_ar"><i
+                                        class="fa-solid fa-angles-left"></i></button>
                             </button>
 
                             <div class="brand_circle_ar">
@@ -314,24 +315,24 @@
                         <div class="agent_msg_ar">
                             <span class="agentname_ar">Operator</span>
                             <div class="chat_message_ar bot_ar">
-                                vfjjdhhdh 
+                                vfjjdhhdh
                             </div>
                             <img src="spider.jpg" class="image_text_ar" id="image_text_ar" alt="">
                             <span class="reply_time_live_chat_agent_ar">03:56 PM</span>
                         </div>
                         <div class="user_msg_ar">
                             <span class="username_ar">You</span>
-                            <div class="chat_message_ar user">I need help with my account</div>
+                            <div class="chat_message_ar user_ar">I need help with my account</div>
                             <span class="reply_time_live_chat_user_ar">03:56 PM</span>
                         </div>
                         <div class="agent_msg_ar">
-                           <span class="agentname_ar">Operator</span>
+                            <span class="agentname_ar">Operator</span>
                             <div class="chat_message_ar bot_ar">Hello 👋 I’m an agent. How can I help?</div>
                             <span class="reply_time_live_chat_agent_ar">03:56 PM</span>
                         </div>
                         <div class="user_msg_ar">
                             <span class="username_ar">You</span>
-                            <div class="chat_message_ar user">I need help with my account</div>
+                            <div class="chat_message_ar user_ar">I need help with my account</div>
                             <span class="reply_time_live_chat_user_ar">03:56 PM</span>
                         </div>
 
@@ -345,105 +346,127 @@
 
             <!-- KNOWLEDGE BASE TAB -->
             <div class="tab_content_ar" id="tab_product_ar">
-               <div class="carousel_wrapper_ar">
-    <button class="nav_ar prev_ar" id="prevBtn_ar"><i class="fa-solid fa-angle-left"></i></button>
+                <div class="carousel_wrapper_ar">
+                    <button class="nav_ar prev_ar" id="prevBtn_ar"><i class="fa-solid fa-angle-left"></i></button>
 
-    <div class="carousel_container_ar">
-        <ul class="carousel_ar" id="carousel_ar">
-            <li>
-                <div class="product_card_ar">
-                    <div class="product_card_img_ar">
-                        <img src="spider.jpg" alt="Product 1">
+                    <div class="carousel_container_ar">
+                        <ul class="carousel_ar" id="carousel_ar">
+                            <li>
+                                <div class="product_card_ar">
+                                    <div class="product_card_img_ar">
+                                        <img src="spider.jpg" alt="Product 1">
+                                    </div>
+                                    <div class="product_card_body_ar">
+                                        <h4>Prof.8</h4>
+                                        <p>X10CT8</p>
+                                        <button class="product_btn_ar">Find out more</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="product_card_ar">
+                                    <div class="product_card_img_ar">
+                                        <img src="spider.jpg" alt="Product 2">
+                                    </div>
+                                    <div class="product_card_body_ar">
+                                        <h4>Prof.9</h4>
+                                        <p>Next Gen Model</p>
+                                        <button class="product_btn_ar">Find out more</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="product_card_ar">
+                                    <div class="product_card_img_ar">
+                                        <img src="spider.jpg" alt="Product 3">
+                                    </div>
+                                    <div class="product_card_body_ar">
+                                        <h4>Prof.10</h4>
+                                        <p>Ultra Series</p>
+                                        <button class="product_btn_ar">Find out more</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="product_card_body_ar">
-                        <h4>Prof.8</h4>
-                        <p>X10CT8</p>
-                        <button class="product_btn_ar">Find out more</button>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="product_card_ar">
-                    <div class="product_card_img_ar">
-                        <img src="spider.jpg" alt="Product 2">
-                    </div>
-                    <div class="product_card_body_ar">
-                        <h4>Prof.9</h4>
-                        <p>Next Gen Model</p>
-                        <button class="product_btn_ar">Find out more</button>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="product_card_ar">
-                    <div class="product_card_img_ar">
-                        <img src="spider.jpg" alt="Product 3">
-                    </div>
-                    <div class="product_card_body_ar">
-                        <h4>Prof.10</h4>
-                        <p>Ultra Series</p>
-                        <button class="product_btn_ar">Find out more</button>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
 
-    <button class="nav_ar next_ar" id="nextBtn_ar"><i class="fa-solid fa-angle-right"></i></button>
-</div>
+                    <button class="nav_ar next_ar" id="nextBtn_ar"><i class="fa-solid fa-angle-right"></i></button>
+                </div>
 
             </div>
+
             <div class="tab_content_ar" id="tab_kb_ar">
                 <div class="kb_item_ar">
                     <h5>How to create a ticket?</h5>
                     <div>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque blanditiis soluta quidem. Numquam, totam rem?
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas
+                        quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque
+                        blanditiis soluta quidem. Numquam, totam rem?
 
                     </div>
                 </div>
 
                 <div class="kb_item_ar">
                     <h5>How to reset password?</h5>
-                       <div>
-                    <p class="sty_k13su9cls">The Certificate, License, Permit (CLP) is a framework commonly used in trade and regulatory environments to manage the necessary authorizations and documents required for various business activities. In the context of the Bangladesh Single Window (BSW), the CLP framework refers to the collection of certificates, licenses, and permits that traders and businesses need to obtain for the import, export, and transit of goods.</p><h3 class="stykl01bkcls">Key Components of CLP</h3>
                     <div>
-                        <h3>testtt</h3>
+                        <p class="sty_k13su9cls">The Certificate, License, Permit (CLP) is a framework commonly used in
+                            trade and regulatory environments to manage the necessary authorizations and documents
+                            required for various business activities. In the context of the Bangladesh Single Window
+                            (BSW), the CLP framework refers to the collection of certificates, licenses, and permits
+                            that traders and businesses need to obtain for the import, export, and transit of goods.</p>
+                        <h3 class="stykl01bkcls">Key Components of CLP</h3>
+                        <div>
+                            <h3>testtt</h3>
+                        </div>
+
                     </div>
-
-                       </div>
                 </div>
 
                 <div class="kb_item_ar">
                     <h5>How to contact support?</h5>
-                      <div>h</div>
+                    <div>h</div>
                 </div>
                 <div class="kb_item_ar">
                     <h5>How to contact support?</h5>
-                      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque blanditiis soluta quidem. Numquam, totam rem?</div>
+                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas
+                        quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque
+                        blanditiis soluta quidem. Numquam, totam rem?</div>
                 </div>
                 <div class="kb_item_ar">
                     <h5>How to contact support?</h5>
-                      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque blanditiis soluta quidem. Numquam, totam rem?</div>
+                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas
+                        quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque
+                        blanditiis soluta quidem. Numquam, totam rem?</div>
                 </div>
                 <div class="kb_item_ar">
                     <h5>How to contact support?</h5>
-                      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque blanditiis soluta quidem. Numquam, totam rem?</div>
+                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas
+                        quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque
+                        blanditiis soluta quidem. Numquam, totam rem?</div>
                 </div>
                 <div class="kb_item_ar">
                     <h5>How to contact support?</h5>
-                      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque blanditiis soluta quidem. Numquam, totam rem?</div>
+                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas
+                        quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque
+                        blanditiis soluta quidem. Numquam, totam rem?</div>
                 </div>
                 <div class="kb_item_ar">
                     <h5>How to contact support?</h5>
-                      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque blanditiis soluta quidem. Numquam, totam rem?</div>
+                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas
+                        quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque
+                        blanditiis soluta quidem. Numquam, totam rem?</div>
                 </div>
                 <div class="kb_item_ar">
                     <h5>How to contact support?</h5>
-                      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque blanditiis soluta quidem. Numquam, totam rem?</div>
+                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas
+                        quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque
+                        blanditiis soluta quidem. Numquam, totam rem?</div>
                 </div>
                 <div class="kb_item_ar">
                     <h5>How to contact support?</h5>
-                      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque blanditiis soluta quidem. Numquam, totam rem?</div>
+                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos non perferendis provident quas
+                        quam. Corrupti laboriosam libero, fuga, molestiae dignissimos ullam dolorum sapiente atque
+                        blanditiis soluta quidem. Numquam, totam rem?</div>
                 </div>
             </div>
 

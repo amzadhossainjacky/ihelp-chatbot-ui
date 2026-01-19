@@ -13,7 +13,11 @@
   display: flex;
   gap: 10px;
 }
-
+.attachment_wrapper_ar{
+  max-width: 55%;
+  word-break: break-word;
+  line-height: 1.4;
+}
 .attachment_tag_ar {
   background: #fff;
   padding: 4px 8px;
@@ -307,7 +311,7 @@ textarea {
 
 .ticket_footer_container_ar {
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: space-between;
   padding: 10px 10px;
   background: #f7f7f7;
@@ -412,7 +416,7 @@ textarea {
   background: #f3f4f6;
 }
 
-.chat_message_ar.user {
+.chat_message_ar.user_ar {
   background: #0ea5e9;
   color: #fff;
   margin-left: auto;
@@ -1138,7 +1142,7 @@ textarea {
   /* height: 100%; */
 }
 
-.phone_number_log_ar_container {
+.phone_number_log_container_ar {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -1153,7 +1157,7 @@ textarea {
 }
 
 /* Soft top accent line */
-.phone_number_log_ar_container::before {
+.phone_number_log_container_ar::before {
   content: "";
   position: absolute;
   top: 0;
@@ -1166,7 +1170,7 @@ textarea {
 }
 
 /* Title */
-.phone_number_log_ar_container h3 {
+.phone_number_log_container_ar h3 {
   font-weight: 600;
   font-size: 18px;
   color: #0f172a;
@@ -1175,7 +1179,7 @@ textarea {
 }
 
 /* Input */
-.phone_number_log_ar_container input {
+.phone_number_log_container_ar input {
   width: 100%;
   border: 1px solid #e5e7eb;
   padding: 15px 16px;
@@ -1186,18 +1190,18 @@ textarea {
   background: #f9fafb;
 }
 
-.phone_number_log_ar_container input::placeholder {
+.phone_number_log_container_ar input::placeholder {
   color: #9ca3af;
 }
 
-.phone_number_log_ar_container input:focus {
+.phone_number_log_container_ar input:focus {
   border-color: #0ea5e9;
   background: #ffffff;
   box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.18);
 }
 
 /* Button */
-.phone_number_log_ar_container button {
+.phone_number_log_container_ar button {
   margin-top: 6px;
   align-self: center;
   padding: 14px 30px;
@@ -1215,24 +1219,24 @@ textarea {
 }
 
 /* Button hover */
-.phone_number_log_ar_container button:hover {
+.phone_number_log_container_ar button:hover {
   transform: translateY(-2px);
   box-shadow: 0 14px 28px rgba(14, 165, 233, 0.35);
 }
 
 /* Button click */
-.phone_number_log_ar_container button:active {
+.phone_number_log_container_ar button:active {
   transform: scale(0.95);
 }
 
 /* Mobile optimization */
 @media (max-width: 480px) {
-  .phone_number_log_ar_container {
+  .phone_number_log_container_ar {
     margin: 60px 16px;
     padding: 22px 18px;
   }
 
-  .phone_number_log_ar_container button {
+  .phone_number_log_container_ar button {
     width: 100%;
   }
 }
